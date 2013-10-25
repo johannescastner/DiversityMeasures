@@ -1,0 +1,105 @@
+\documentclass[12pt]{article}
+\usepackage{titling}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+\newcommand{\ts}{\textsuperscript}
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+
+
+
+\begin{document}
+
+%
+
+\title{Measures of Cognitive Distance and Diversity.}
+\author{Johannes  Castner}		% used by \maketitle
+
+\date \today
+\maketitle
+
+\section{Introduction}
+How can we measure and classify causal belief systems of Americans regarding the economic, political, social and technological causes and consequences of global climate change? How diverse are these beliefs, and what factors explain this diversity? And how do these beliefs compare with those of their representatives? These are the questions that this study will analyze using theory and methods not usually employed in this field.
+%From Bill: Need initial graf stating why the qs you’re going to answer are important to answer.
+\\
+%From Bill: i moved this text here bec you want to first be clear about what the field does so that it’s clear how you’re going to be different.
+Prior studies measure causal beliefs regarding climate change by presenting individuals with predefined lists of presumably relevant items and average responses to individual questions (Bostrom et al., 1994; Maibach et al. 2011; Krosnik et al. 2006).
+%I feel that the word "items" fits pretty well there, because it is such a good description of the way in which questions are usually asked; itemized (but Bill would like something fuller here, I suppose). ...but below, we have this nice "contrast", and we use the word "concepts", which is fuller; I really like it, actually.
+In contrast, we elicit salient concepts from individuals and construct individual causal systems of beliefs. Cognitive scientists are accruing rich evidence that we reason and learn on the basis of causal explanations (Lombrozo, 2006, Anderson 2008), and Urpelainen and Aklin (2013) show that opposing arguments (frames) surrounding energy policy cancel out, leaving attitudes unchanged.
+%Bill: need to be more clear about how this relates to causal belief systems. Johannes: I agree. What exactly are frames? Marion, can you get this one, as this is something you know better than I do?
+Thus, to explain why and when an argument takes hold and shapes preferences, we argue it is necessary to analyze how a particular argument interacts with a person’s pre-existing web of related beliefs. %Bill: but if i understand you correctly, it’s not just beliefs, but the causal structure of beliefs. Johannes: Marion, do you understand his point here? "pre-existing web of related beliefs" refers to structure; no?
+Rational choice theories take preferences over policy dimensions as given and predict how political processes aggregate them to determine outcomes. Consistent with this framework, public opinion research often focuses on measuring people’s policy prefer- ences. Our approach breaks with tradition, as we believe that a sole focus on attitudes, rather than on factors that can explain them, shrouds much of the drivers of political life. The formulation of a preference is but the final step in the process of using our systems of knowledge to apprehend complex real-world problems. Thus, unsurprisingly, studies are inconclusive as to the effect of economic self-interest on policy preferences (Lewis-Beck and Stegmaier, 2000): this question cannot be resolved without knowing what people individually believe regarding the cause-effect links between a policy and their welfare. In fact, when economic stakes are unambiguous, both to voters and to the researcher, they have been found to matter (Sears, 1979). Public opinion theorists have long found opinion to be very unstable (Converse, 1965; Zaller, 1992).
+
+While this instability was long seen as a sign of the public’s incompetence, framing theory suggests that people are sensitive to the multi-dimensionality of policy issues and that framing (i.e. focusing on specific considerations) can consequently influence opinion (Druckman and Chong, 2007), albeit in non-erratic ways. %Bill wants to know exactly what framing is and so do I; I'm ashamed to say that I actually don't know this either.
+This helps explain why, despite instability, people are found to have clear opinions about specific bills and to hold their represen- tatives accountable on this basis (Ansolabehere and Jones, 2010). Framing theory thus goes one step deeper in the cognitive structure underlying opinion but it so far has looked at frames in isolation. Measuring causal belief systems is the first step towards studying how frames interact within a system of beliefs. This will provide the founda- tions - currently missing (Druckman and Chong, 2007) - for theorizing which frames gain prominence and how they are related to more stable world-views, thus contributing to our understanding of opinion dynamics.
+
+Further studies will study how belief systems interact with exposure to arguments to affect opinion, as well as how citizens perceive their representatives’ beliefs and use those to understand and predict political behavior and vice versa.
+%Bill: at this point in the ppl, the reader should be clear about why your research qs. matter (first graf), what previous research says or does that is in contrast to what you’re saying and doing, and what it is that you’re saying. and the rest of the ppl is how you’re going to answer your research qs in keeping with what you say you’re about. Johannes: If I understand Bill correctly, then what he means to say here is that we should cut the part on further studies and I can agree with that.
+To carry out our analysis, we follow the pioneering work of Robert Axelrod (1976) of conceptualizing belief systems as causal maps. Causal maps are represented as directed graphs, where nodes are concepts and edges are asserted causal relations between these concepts (negative, zero etc.). %Maybe we should have an exhaustive list here instead of "etc."?
+Concepts are differentiated into inter- vention nodes (policies), value nodes (end-goals), and mediating variables. %Bill is asking what the point of this sentence is and I can understand his point, as we don't get into any theory in this proposal that would justify this sentence.
+To construct these causal maps for elected officials, we use tools from computational linguistics to extract causal assertions from the Congressional Record from 1970 to today yields the diversity and evolution of causal beliefs of officials over time. %Bill: house and senate? just house? cr is notorious for officials putting in anything, though i think it doesn’t harm your work. problem is you don’t have space to explain this. Johannes: Yes house and senate. Fucus on discussions not on added news paper articles etc. Bill: why is the evolution of beliefs necessary for what you’re doing, esp vis-à-vis population beliefs, which are measured at one point in time. Johannes: good point, lets pick a small subset of the record for now!
+To construct these causal maps for the U.S. population, we propose to survey a large number of respondents via Amazon Mechanical Turk (MTurk), a Web-based platform for recruiting and paying subjects to perform tasks. Although not as representative as national probability samples, MTurk has been shown to yield similar results (Berinsky, Huber and Lenz, 2012) for a fraction of the cost. To obtain as complete a graph as possible without priming a subject, we designed a method based on snow-ball sampling that is used to obtain social networks. Starting from one concept, the instrument uncovers the graph by iteratively asking for the causes and consequences of the concepts thus elicited.
+
+Using this large sample of causal graphs, we first examine whether beliefs explain policy preferences by evaluating the degree to which the former predict the latter. Second, we construct typographies of belief systems and evaluate the degree to which clusters of beliefs found among Congressmen actually represent those found amongst the public. %Bill: decide whether you want to use future or present tense and use whichever one throughout. previously you used present tense, which i prefer, and so i changed it here. Johannes: presentence is better, I agree. Bill: two things: my editing here is an example of how you have to cut to the chase in such short proposals. i do this elsewhere, but you have to do more of it. also, do you want to say “test” or something more cautious, like “examine”. Johannes: examine is much better (I changed it)! Bill: no women in congress?? are you talking reps and senators or just reps? Johannes: there are women in congress, so must we add "Congresswomen" for sake of being PC? %Bill: have to say that in survey you’ll measure preferences, and whatever else you’ll measure. Johannes: yes, but the focus is not on preferences. Would be great to figure out how much self serving bias there is in "learning" processes, but that is not possible here.
+To build typographies, we use information theoretic measures to measure the distance between causal maps and the diversity of collections of such maps. We also use the computer-assisted clustering tool developed by Grimmer and King (2011). %Bill: leave out adjectives that add color (like “recently”, which i edited out) but take away space needed for more important ends. Johannes: I changed "we draw on graph theory to develop a measure of the distance between causal maps" to "we use information theoretic measures to measure the distance between causal maps and the diversity of collections of such maps"
+From the sample of causal maps, we will obtain measures of cognitive diversity within and across clusters and geopolitical units (using the n-point, or generalized Jensen-Shannon Divergence), yielding a rich description of the American mental landscape related to climate change. %Johannes: I changed "using Weitzman's 1992 diversity measure" to "using the n-point, or generalized Jensen-Shannon Divergence". Bill: i’m getting confused about the cong data and the pop data. discuss each separately when they’re separate and then bring together. Johannes: good idea, maybe we should focus more on the M-Turk data in this proposal and less on Congressional Record?
+The distance and diversity measures allow us to focus on specific dimensions of belief systems: variation in values (e.g., American prosperity vs. local economic interests), in thinking styles (e.g., whether people think in terms of feedback loops or more linearly) and in key mediating variables. %Bill: don’t overlook little grammatical things like this. Johannes: I think he fixed it; I don't see the problem anymore.
+Thus, we can identify group specific concerns that have not been recognized in the literature. %this is your second “second”, and so now i’m confused about where each set of the three sets of questions begins and ends:
+Second, we can identify the predominent sources of disagreement in the population: do they concern end-goals, or disagreements about how those come about (causal mechanisms at play in the world)? %Johannes: The "Second" doesn't work; wehere is the "First"?
+Finally, we will measure the degree of association between the political and economic context of re- spondents and their beliefs. Drawing on framing theory (Druckman and Chong, 2007), we hypothesize that respondents living in urban areas of swing states, having been ex- posed to more competing frames, will have more complex graphs spanning a wider set of considerations than respondents in ideologically stable states. %Johannes: I need to read about "framing theory" next!
+We will also evaluate whether the relatedness of a person’s sector of employment to different energy sectors is associated with increased prevalence of beliefs related to local economic impacts. %Bill: by the end of this section, i couldn’t keep straight what you were doing, esp re cong vs pop data/analysis. Johannes: we need to work on clarity!
+\section{References}
+
+Anderson, John R. 2008. \textit{Cognitive Psychology and its Implications}. Worth Publishers; Seventh Edition edition.
+\\
+
+Ansolabehere, Stephen and Jones, Philip E. 2010. \textit{Constituents' Responses to Congres- sional Roll-Call Voting.} American Journal of Political Science, Vol. 54, No. 3.
+\\
+
+Aklin, M. and Urpelainen, J. 2013. \textit{Debating Clean Energy: Frames, counter frames and audiences.} Global Environmental Change, In press.
+\\
+
+Axelrod, R. 1976. \textit{Structure of decision : the cognitive maps of political elites}. Princeton: Princeton University Press.
+\\
+
+Berinsky, Adam J., Huber, Gregory A. and Lenz, Gabriel S. 2012. \textit{Evaluating Online Labor Markets for Experimental Research: Amazon.coms Mechanical Turk}. Political Analysis 20:351368.
+\\
+
+Bostrom, A. M., Morgan, G., Fischhoff, B. and Daniel Read. 1994. \textit{What Do People Know About Global Climate Change?} Risk Analysis Vol 14. No. 6.
+\\
+
+Converse, PE. 1965. \textit{The Nature of belief systems in mass publics}. In Ideology and discontent, ed. Apter, D.E. New York: Free Press.
+\\
+
+Chong, Dennis, and James N. Druckman. 2007. \textit{Framing Theory}. Annual Review of Political Science. Vol. 10: 103-126.
+\\
+
+Grimmer, Justin, and Gary King. 2011. \textit{General Purpose Computer-Assisted Clustering and Conceptualization}. Proceedings of the National Academy of Sciences Copy at http://j.mp/j4xyav
+\\
+
+Lewis-Beck, M.S and Stegmaier, M. 2000. \textit{Economic Determinants of Electoral Outcomes}. Annual Review of Political Science Vol 3:183-219.
+
+Lombrozo, T. 2006. \textit{The structure and function of explanations}. Trends in Cognitive Sciences, Vol. 10(10): 464-470.
+\\
+
+Maibach, E.W, Leiserowitz, A. Roser-Renouf, C. and Merty, C.K. 2011. \textit{Identifying Like-Minded Audiencesfor Global Warming Public Engagement Campaigns: an Audience Segmentation Analysis and Tool Development}. PloS One, 6(3): e17571.
+\\
+
+Sears, D.O., Lau, R.R., Tyler, T.R., Allen H.M. 1979. \textit{Self-interest vs. Symbolic Politics in Policy Attitudes and Presidential Voting}. The American Political Science Review, Vol. 74(3):670-684.
+\\
+
+Weitzman, ML. 1992. \textit{On Diversity}. The Quarterly Journal of Economics 107(2): 363- 405.
+\\
+
+Zaller, J. 1991. Information, Values and Opinion. The American Political Science Review, Vol 85(4):1215-1237.
+
+\end{document}             % End of document.
