@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+\usepackage{titling}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+
+				
+
+\begin{document}
+
+%
+
+\title{Distance between two Causal Arcs of a Causal Belief System}			% used by \maketitle
+\author{Johannes  Castner, }		% used by \maketitle
+\date \today	
+\maketitle
+  
+
+\subsection{An Entropy Based Distance Measure for a Single Arc in a Causal Belief System}
+
+According to Axelrod (1976) we can code eight causal relations between any two concepts:
+
+\begin{itemize}
+\item $+$: positive
+\item $-$: negative
+\item $\oplus$: non-negative
+\item $\ominus$: non-positive
+\item $0$: zero
+\item $m$: non-zero (positive or negative)
+\item $u$: universal (positive, zero, or negative)
+\item $\emptyset$: empty (the speaker did not assert a relation at all)
+\end{itemize} 
+
+Below, I suggest how the amount of disagreement (distance) between two speakers about one causal arc may be combined in a string representation over which an entropy distance can be calculated, where the Shannon Entropy is calculated as:
+
+$$-\sum_{i=1}^n p(x_i)log_b p(x_i),$$
+
+where $x_i$ is the $i$s symbol in a string of symbols belonging to a ternary alphabet. Here, the alphabet consists of $+$, $0$, and $-$ and the length of the string is $n=12$. I choose $n$ to be $12$ because such strings seem to contain enough information to arrive at a plausible distance measure for each arc. These strings of length $12$, represent the distance of belief between any two people about the sign of the relationship that lies between two concepts. The base of the logarithm is $3$, because the alphabet is ternary. Intuitively, when one person says that the relationship is positive, while the other person says that it is negative, confusion caused by disagreement and thus entropy should be maximal. Note that given 7 possible asserted relation and presuming that the universal belief is the same as the non-stated belief, there are $2^6=64$ non-trivial distances to be calculated, but note that many will be the same as what is calculated here is the number of trinary digits on which two speakers disagree. Below, I give intuition and I enumerate the cases that are unique:           
+
+$$d(+, -) = max(entropy)$$
+
+This distance can be thought of as the one where the probabilities of the positive, zero and negative relations are equal, due to disagreement, and thus it can be expressed as the string: $(++++0000----)$ for $d(+, -)$. Shannon Entropy is maximized and equal to $1$. 
+
+Next, comes the case for which one speaker has one type of belief and the other has two beliefs that do not include the first speaker's belief, but on one of the two the distance is closer (out of the two beliefs one is less opposing):
+
+$$d(+, \ominus)=d(-, \oplus)$$
+
+For $d(+, \ominus)$ the weight of the relation being zero is a bit higher than for $d(+, -)$ and thus the string representation is $(++++00000---)$, where there is an additional $0$ and one less $-$. Here, the Shannon Entropy is slightly reduced and approximately equal to $0.981$.
+
+When two speakers disagree to the extent that one believes in a non-negative and the other in a non-positive relation, relatively more weight is shifted toward the combined belief in a zero relationship and their difference is further reduced (they both would not be surprised by a zero relation and thus they are in closer agreement):
+
+$$d(+, \ominus) \geq d(\ominus, \oplus).$$
+
+For $d(\ominus, \oplus)$, the probability of the relationship being positive/negative is reduced and the probability of it being zero is increased and thus the string representation of their combined belief is $(+++000000---)$ and the Shannon Entropy is $0.946$. 
+
+$$d(m, \oplus)=d(m, \ominus)=d(\oplus, \ominus).$$
+
+In the case where one person believes in a non-zero relationship and the other person believes in a non-negative one, ($d(m, \oplus)$ say), the entropy is the same as in the case where one person believes in a non-negative relation and the other believes in a non-positive one, but the string representation is now: $(+++---000+++)$ (the reason why the entropy should be the same is that they both have one category of relation on which they agree and one on which they disagree). 
+
+Now, I make the assumption that the case in which one person makes no statement at all is the same as when that person says that she is completely ambivalent, or has universal beliefs (the relation can be positive, negative or zero). This assumption may be wrong, but it is hard to see how to treat missing data (a null-relation) in a better way. 
+
+When one actor has more certainty while the other is completely uncertain, together they become more certain, or their difference becomes smaller (their combined confidence that one is right increases):
+
+$$d(+, u)=d(-,u)=d(0, u)=d(+, \emptyset)=d(-, \emptyset)=d(0, \emptyset).$$
+
+For $d(+, u)$, for example, the weight of there being a positive relation is even further increased and the weight that is placed on the relation being zero or negative is equal but low. Thus the string representation is $(++++++++00--)$ for which the Shannon Entropy is $0.79$. 
+
+Note that when a person says nothing or has universal beliefs, this is not the same as if that person asserted that the relation is $0$; in fact universal beliefs are more risky than strong beliefs about a $0$ relation, which is the case that I consider next: 
+
+$$d(+, 0)=d(-, 0)$$
+
+For $d(+, 0)$ The probability of the relationship being $0$ is $50\%$ and the string representation of this difference in beliefs is $(++++++000000)$, for which the Shannon Entropy is $0.631$. For $d(\oplus, 0)$ the string representation is $(+++++0000000)$ and the entropy is $0.618$, which is even lower (the actors' beliefs become more similar and they are more likely to agree on a $0$ relation. 
+
+$$d(m, u)=d(\oplus, u)=d(\ominus, u)$$
+
+When two people are quite uncertain about a relationship, but one is more uncertain than the other (one believes in a non-zero relation, for example, while the other has universal beliefs or didn't state his beliefs at all) they are quite similar and what needs to be captured is this similarity, rather than their combined uncertainty. So, for example, when one person believes that the relation is non-zero and the other has universal beliefs, we have $d(m, u)$, where the string representation can be $(00000-+00000)$; they disagree exactly on two ternary digits. Note that the zeros are arbitrary here and they represent agreement and NOT a high combined belief in a $0$ relation (the string representation $(+++++-0+++++)$ would do just as well). In fact, the entropy is the same as for $d(\oplus, u)$ or $d(\ominus, u)$, namely $0.515$.
+ 
+$$d(+, m)= d(-, m)=d(-, \ominus)=d(+, \oplus)=d(0, \ominus)=d(0, \oplus)$$
+
+The last non-trivial distance is the one in which two actors almost agree; that is, they agree on one relation, while only one of them, and not the other, also believes in the possibility of a second one. 
+
+For $d(+, m)$, for example, the weight on the relationship being zero is $0$ but the weight on it being negative is still non-zero and thus the string representation is $(+++++++++---)$ for which the Shannon entropy is $0.512$.
+
+
+   
+
+\end{document}             % End of document.

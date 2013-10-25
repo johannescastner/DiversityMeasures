@@ -1,0 +1,10 @@
+\beamer@endinputifotherversion {3.10pt}
+\beamer@sectionintoc {1}{Motivation}{3}{0}{1}
+\beamer@sectionintoc {2}{Debt}{9}{0}{2}
+\beamer@sectionintoc {3}{A Modular Research Program}{10}{0}{3}
+\beamer@sectionintoc {4}{The Pieces (Modules)}{11}{0}{4}
+\beamer@sectionintoc {5}{Mental Models}{12}{0}{5}
+\beamer@sectionintoc {6}{Bayesian Beliefs}{17}{0}{6}
+\beamer@sectionintoc {7}{Cognition and Social Science}{30}{0}{7}
+\beamer@sectionintoc {8}{Measuring Cognitive Distance}{41}{0}{8}
+\beamer@sectionintoc {9}{Cognitive Diversity}{45}{0}{9}

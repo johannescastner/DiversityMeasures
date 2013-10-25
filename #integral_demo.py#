@@ -1,0 +1,76 @@
+#!/usr/bin/env python
+
+# implement the example graphs/integral from pyx
+from pylab import *
+from matplotlib.patches import Polygon
+
+def func1(x):
+    return 6*x*x
+
+def func2(x):
+    return 12*x*x
+
+def func3(x):
+    return 100 + 7*x*x
+
+ax = subplot(111)
+
+#a, b = -4, 4 # integral area
+x = arange(-3, 3, 0.01)
+
+y = np.row_stack((func1(x), func2(x)))
+
+y1, y2 = func1(x), func2(x) #, func3(x)
+
+fig = plt.figure()
+
+ax = fig.add_subplot(111)
+
+ax.stackplot(x, y)
+
+
+# make the shaded region
+ix = arange(-3, 3, 0.01)
+iy = func3(ix)
+verts = [(-3,500)] + list(zip(ix,iy)) + [(3,500)]
+poly = Polygon(verts, facecolor='red', edgecolor='k')
+ax.add_patch(poly)
+
+text(0, 30,
+     r"$(\mu_0, \sigma_0)$", horizontalalignment='center',
+     fontsize=20)
+
+ax.arrow(-1.9, 15, 1.5, 10, head_width=0.3, head_length=0.9, fc='k', ec='k')
+
+text(0, 120,
+     r"$(\mu_{Ambiguous}, \sigma_{Ambiguous})$", horizontalalignment='center',
+     fontsize=20)
+
+ax.arrow(1.9, 15, -1.5, 100, head_width=0.3, head_length=0.9, fc='k', ec='k')
+
+#text(-1.8 , 30,
+#     r"$\ominus$", horizontalalignment='center',
+#     fontsize=40)
+
+#text(1.8 , 30,
+#     r"$\oplus$", horizontalalignment='center',
+#     fontsize=40)
+
+text(-2.4 , 15,
+     r"$(\mu_{-}, \sigma_{-})$", horizontalalignment='center',
+     fontsize=20)
+
+text(2.4 , 10,
+     r"$(\mu_{+}, \sigma_{+})$", horizontalalignment='center',
+     fontsize=20)
+
+axis([-3,3, 0, 180])
+figtext(0.9, 0.09, '$\mu$', fontsize=30)
+figtext(0.1, 0.9, '$\sigma$', fontsize=30)
+ax.set_xticks((-0.5,0.5))
+ax.set_xticklabels(('',''))
+ax.set_yticks([])
+#show()
+fig.savefig('distances.pdf')
+
+

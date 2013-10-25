@@ -1,0 +1,7 @@
+def hamming_distance(G1, G2):
+    '''
+    This Function calculates the Hamming Distance for two directed graphs with
+    8 different relationships
+    '''
+    assert len(s1) == len(s2)
+    return sum(ch1 != ch2 for ch1, ch2 in zip(s1, s2))
