@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
 \usepackage{hyperref}
 \usepackage{mathrsfs}
 \newcommand{\ts}{\textsuperscript}
@@ -115,7 +116,7 @@ The Noisy-OR parameterization can also be derived (as in Tenenbaum and Griffiths
 \section{Derivation of the Jensen-Shannon Divergence for Measures of Cognitive Distance and Diversity}
 \subsection{Causal Support}
 %D) In math, show how the Weitzman measure + the JS metric yield a measure of the diversity of probability density functions.
-Until recently (Tenenbaum \& Griffiths, 2001, Griffiths \& Tenenbaum, 2005) Bayesian models of human causal induction have typically been concerned with parameter estimation rather than with the learning of causal graph structure. As part of their work on causal learning, Tenenbaum \& Griffiths have introduced a measure called \textit{Causal Support}, which measures the support that some evidence lends to a particular structural causal theory (BN) in favor of another; it is really just a special case of a likelihood ratio, where the usual concern of parameter estimation is replaced with a concern for causal structure (or model selection):
+Until recently (Tenenbaum \& Griffiths, 2001, Griffiths \& Tenenbaum, 2005) Bayesian models of human causal induction have typically been concerned with parameter estimation rather than with the learning of causal graph structure. However, it is the structure of people's belief systems that 1) is likely more important to understanding differences between people and 2) is easier to obtain information about. As part of their work on causal learning (the human learning of causal structure), Tenenbaum \& Griffiths have introduced a measure called \textit{Causal Support}, which measures the support that some evidence lends to a particular structural causal theory (BN) in favor of another; it is really just a special case of a likelihood ratio, where the usual concern of parameter estimation is replaced with a concern for causal structure (or model selection):
 \begin{equation} \label{eq:support}
 \text{Support}_{1,0} = \log\left(\frac{P(D | \text{Graph}_1)}{P(D | \text{Graph}_0)}\right),
 \end{equation}
@@ -133,9 +134,9 @@ $$\text{Support}_{1,2} = \log\left(\frac{\int_0^1 \int_0^1 P_1(D | \text{Graph}_
 
 \subsection{Cognitive Distance}
 
-Departing from Tennenbaum and Griffiths now, let us suppose that the data is repeatedly drawn from the first model specified by Graph$_1$ (a large number of times). The average Causal Support of that (correct) model, Graph$_1$, vis-\'a-vis another model, Graph$_0$, can then be seen as the degree to which the first model can be destinguished from the second one, if the first one in fact specifies the correct data generation process. The resulting quantity is known as the Kullback-Leibler divergence  (also Information Divergence, Information Gain, Relative Entropy, or KLIC):
+Departing from Tennenbaum and Griffiths now, let us now suppose that the data is repeatedly drawn from the first model specified by Graph$_1$ (a large number of times). The average Causal Support of that (correct) model, Graph$_1$, vis-\'a-vis another model, Graph$_0$, can then be seen as the degree to which the first model can be destinguished from the second one, if the first one in fact specifies the correct data generation process. The resulting quantity is known as the Kullback-Leibler divergence  (also Information Divergence, Information Gain, Relative Entropy, or KLIC):
 $$D_{KL}(P_1 | | P_0)=E_1\left(\frac{P_1(D)}{P_0(D)}\right), \text{ with } D\sim P_1,$$
-where $E_1(\cdot)$ is the expectation operator under Graph$_1$ (not the effect variable). For notational convenience, I write $P_1(D)$, $P_0(D)$, instead of $P_1(D | \text{Graph}_1)$ and $P_0(D | \text{Graph}_0)$. However, in this example as in many others, it is clear that $D_{KL}(P_1 | | P_0)=\infty$, because Graph$_0$ puts zero probability on $D=(B=0, C=1, E=1)$, which will in expectation be drawn $P_1(C=1)*\pi_{1, C}*N$ times for every $N$ draws. To fix this problem, let $M=\lambda P_1 + (1-\lambda) P_0$ denote the mixture of the two joint distributions, with $\lambda \in (0, 1)$. It is then guaranteed that $D_{KL}(P_1 | | M)$, the average causal support of Graph$_1$, vis-\'a-vis the mixture, $M$, when Graph$_1$ generates the data, takes on finite values (for all the calculations in this paper $\lambda =\frac{1}{2}$). The same can then be done in reverse where the average causal support of the second model, Graph$_0$, over the mixture $M$, is calculated with data repeatedly drawn from the distribution specified by Graph$_0$:
+where $E_1(\cdot)$ is the expectation operator under Graph$_1$ (not the effect variable). For notational convenience, I write $P_1(D)$, $P_0(D)$, instead of $P_1(D | \text{Graph}_1)$ and $P_0(D | \text{Graph}_0)$. However, in this example as in many others, it is clear that $D_{KL}(P_1 | | P_0)$ is not defined, because Graph$_0$ puts zero probability on $D=(B=0, C=1, E=1)$, which will in expectation be drawn $P_1(C=1)*\pi_{1, C}*N$ times for every $N$ draws. To fix this problem, let $M=\lambda P_1 + (1-\lambda) P_0$ denote the mixture of the two joint distributions, with $\lambda \in (0, 1)$. It is then guaranteed that $D_{KL}(P_1 | | M)$, the average causal support of Graph$_1$, vis-\'a-vis the mixture, $M$, when Graph$_1$ generates the data, takes on finite values (for all the calculations in this paper $\lambda =\frac{1}{2}$). The same can then be done in reverse where the average causal support of the second model, Graph$_0$, over the mixture $M$, is calculated with data repeatedly drawn from the distribution specified by Graph$_0$:
 $$D_{KL}(P_0 | | M)=E_0\left(\frac{P_0(D)}{M(D)}\right), \text{ with } D\sim P_0.$$
 
 The JSD for the two models is then obtained by taking a weighted average over these two expectations:
@@ -158,12 +159,8 @@ where $H(\cdot)$ is defined as the Shannon Entropy and where the $\omega_i$s are
 \text{Potential Diversity}(n)=\log_2(n),
 \end{equation}
 which in the special case where $n=2$ is equal to $1$. In other words, it is a result of Equation ~\ref{eq:n-point}, that $0 \leq \text{JSD}_n \leq \log_2(n).$
-\begin{figure} \label{fig:pot}
-%There must be a figure called potential
-\includegraphics[width=80mm]{potential.pdf}
-\caption{The potential diversity log$_2(n)$.}
-\end{figure}
-We can thus see (in Figure ~\ref{fig:pot}) that the potential diversity (as defined in Equation ~\ref{eq:potential}) is an increasing function of the number of individuals, as intuition would suggest.
+
+We can thus see that the potential diversity ($\log_2(n)$) is an increasing and concave function of the number of individuals, as intuition would suggest.
 Further, it is the case that for any tuple of probability distributions, for example the two-tuple ($P$, $Q$), the JSD$_n$ over just that tuple has the same numerical value as JSD$_{nk}$, over any multiple of this tuple ($k$ times the same entries as in the original tuple, where $k$ is a positive integer). For example JSD$_2(P, Q)=$ JSD$_4(P, P, Q, Q)$. Taken together, Equation ~\ref{eq:potential} and this last point represent a problem for a measure of diversity, as having two, very different view-points in a collective of two people seems to mean, intuitively, that the collective of two is very diverse, while having two even radically different view-points in a collective of a hundred people seems to be decidedly less diverse. But luckily, there is an easy fix; devide the JSD$_n$, by potential diversity log$_2(n)$ so that the final diversity measure is:
 \begin{equation} \label{eq:diversity}
 \text{Cognitive Diversity}_n(P_1, P_2, \ldots, P_n)=\sqrt{\frac{1}{\log_2(n)}\text{JSD}_n(P_1, P_2, \ldots, P_n)}.
@@ -174,7 +171,15 @@ The cognitive diversity as defined in Equation ~\ref{eq:diversity}, as it is nor
 \section{Causal Explanations of the 2008 Foreclosure Crisis}
 %Discuss the table and distances in terms of the graphs from which they were computed. How are we to understand the numbers in light of the belief systems. Give a few examples on how belief systems are constructed. Make 5 person committee so as to maximize diversity.
 
-Since the economic crisis\footnote{As it is generally accepted that the economic crisis was the result of a housing foreclosure crisis, or subprime mortgage crisis, these terms are here used as if they were interchangable. This is a simplification that should not matter, as one could add to every belief system the same extension, which has the same effect on the discussed measures as if this extension is simply collapsed into one effect node which includes all of these terms.} commenced in 2008, many narratives seeking to explain the onset of this costly phenomenon have appeared in public discussions (including four congressional committees), speeches, newspaper articles, academic papers and books. I thus use the statements of a few important analysts of the crisis to show how beliefs can be represented as Bayesian Networks and how the cognitive diversity of a collection of such experts is then approximately measured\footnote{The python code for this exercise can be found on my \href{https://github.com/jac2130}{github site}.}. The material, alongside some explanations of how it is used to construct the cognitive maps, exhibited in Figure ~\ref{fig:committe1}, can be found in the Appendix.
+Since the economic crisis\footnote{As it is generally accepted that the economic crisis was the result of a housing foreclosure crisis, or subprime mortgage crisis, these terms are here used as if they were interchangable. This is a simplification that should not matter, as one could add to every belief system the same extension, which has the same effect on the discussed measures as if this extension is simply collapsed into one effect node which includes all of these terms.} commenced in 2008, many narratives seeking to explain the onset of this costly phenomenon have appeared in public discussions (including four congressional committees), speeches, newspaper articles, academic papers and books. I thus use the statements of a few important analysts of the crisis to show how beliefs can be represented as Bayesian Networks and how the cognitive diversity of a collective of such experts is then approximately measured\footnote{The python code for this exercise can be found on my \href{https://github.com/jac2130/DiversityMeasures/blob/master/BayesNets.py}{github site}.}. The material, alongside some explanations of how it is used to construct the cognitive maps, exhibited in Figure ~\ref{fig:committe1}, can be found in the Appendix, although I shall give one example here:
+\\
+In the Financial Crisis Inquiry Commission Staff audiotape of the interview with Warren Buffett on the 26\ts{th} of May, 2010, the Berkshire Hathaway CEO was recorded as saying the following:
+
+\begin{quotation}
+The basic cause was, you know, embedded in, partly in psychology, partly in reality in a growing and finally pervasive belief that house prices couldn't go down. And everybody succumbed, virtually everybody succumbed to that. But that's, the only way you get a bubble is when basically a very high percentage of the population buys into some originally sound premise \ldots
+\end{quotation}
+
+As Mr. Buffett only spoke of one cause, I will humerously name it $CD$: Cognitive Diversity, (virtually everybody succumbed) and as Buffet blamed the onset of the crisis on the lack of $CD$, I arrive at Mr. Buffet's CM (Figure ~\ref{fig:buffet}).
 
 \begin{figure}
         \centering
@@ -314,19 +319,21 @@ It is important to experiment with these measures in order to get a better under
 \centering
 \footnotesize
 \begin{tabular}{l*{10}{c}r}
-Committee &   Bernanke   &   Paulson   &   Morgenthau   &   Becker   &   Stiglitz   &   Born   &   Greenspan   &   Buffett   &   Krugman   &   Rodrik   &   Soros\\
+Committee &   Bernanke   &   Paulson   &   \textcolor{ForestGreen}{Morgenthau}   &   \textcolor{ForestGreen}{Becker}   &   \textcolor{ForestGreen}{Stiglitz}   &   Born   &   Greenspan   &   \textcolor{ForestGreen}{Buffett}   &   \textcolor{ForestGreen}{Krugman}   &   \textcolor{ForestGreen}{Rodrik}   &   Soros\\
 \hline
-$n=10$     & -0.0112 & -0.0055 & 0.0054 & -0.0018 & 0.0058 & -0.0091 & -0.0107 & -0.003  & -0.006  & -0.007  & -0.0099  \\
-$n=9$      &         & -0.0078 & 0.0049 & -0.0036 & 0.0049 & -0.0094 & -0.0135 & -0.0047 & -0.0067 & -0.0081 & -0.0125\\
-$n=8$      &         & -0.009  &  0.004 & -0.0037 & 0.0027 & -0.0125 &         & -0.0073 & -0.0099 & -0.0094 & -0.0161\\
-$n=7$      &         & -0.0133 & 0.0015 & -0.0049 & 0.0031 & -0.015  &         & -0.0111 & -0.0145 & -0.0126 &        \\
-$n=6$      &         & -0.0206 &-0.0016 & -0.0037 & 0.002  &         &         & -0.0175 & -0.0192 & -0.0116 &        \\
+$n=10$     & \textcolor{red}{-0.0112} & -0.0055 & 0.0054 & -0.0018 & 0.0058 & -0.0091 & -0.0107 & -0.003  & -0.006  & -0.007  & -0.0099  \\
+$n=9$      &         & -0.0078 & 0.0049 & -0.0036 & 0.0049 & -0.0094 & \textcolor{red}{-0.0135} & -0.0047 & -0.0067 & -0.0081 & -0.0125\\
+$n=8$      &         & -0.009  &  0.004 & -0.0037 & 0.0027 & -0.0125 &         & -0.0073 & -0.0099 & -0.0094 & \textcolor{red}{-0.0161}\\
+$n=7$      &         & -0.0133 & 0.0015 & -0.0049 & 0.0031 & \textcolor{red}{-0.015}  &         & -0.0111 & -0.0145 & -0.0126 &        \\
+$n=6$      &         & \textcolor{red}{-0.0206} &-0.0016 & -0.0037 & 0.002  &         &         & -0.0175 & -0.0192 & -0.0116 &        \\
 \hline
-$n=5$      &         &         &-0.0053 & -0.0041 & -0.0002&         &         & -0.0236 & -0.026  & -0.0213 &        \\
+$n=5$      &         &         &\textcolor{ForestGreen}{-0.0053} & \textcolor{ForestGreen}{-0.0041} & \textcolor{ForestGreen}{-0.0002}&         &         & \textcolor{ForestGreen}{-0.0236} & \textcolor{ForestGreen}{-0.026}  & \textcolor{ForestGreen}{-0.0213} &        \\
 %\subsection{Notes}
 \end{tabular} \hspace*{-3.5cm}
-\caption{Morgenthau, Becker, Stiglitz, Buffett, Krugman and Rodrik survived the iterated deletion of diversity minimizing elements, for a maximally diverse group of 5. (the algorithm is as in Equation ~\ref{eq:min})} \label{table:minimize}
+\caption{This table represents the algorithm of iterated deletion of diversity minimizing elements (the algorithm is as in Equation ~\ref{eq:min}). Morgenthau, Becker, Stiglitz, Buffett, Krugman and Rodrik survived the iterated deletion of diversity minimizing elements, for a maximally diverse group of 5.} \label{table:minimize}
 \end{table}
+
+
 
 Interesting is also to measure how much each individual view of the crisis contributes to the diversity of the collection of views, so that an $l$ person team of experts can be constructed with the goal of maximizing diversity in mind (if that were to be found desirable)\footnote{In practice of course, there are many more conciderations aside from just cognitive diversity and it is likely never advisable to be entirely directed by such a uni-dimensional goal.}. There are two ways in which a maximally diverse group of, say $5$, could be constructed from a group of $10$: one way is to repeatedly subtract that person from the group whose presence contributes the least to (or subtracts the most from) the diversity of the group, (i.e. Equation ~\ref{eq:min}) and the other is to, starting from the cognitive distance of two people's graphs, repeatedly adding that additional person whose inclusion maximizes the cognitive diversity of the larger group (Equation ~\ref{eq:max}):
 \begin{equation}\label{eq:min}
@@ -357,18 +364,18 @@ for $k$ causal effect parameters, where the ``Noisy-OR'' parameterization is use
 
 %Kemp et al. formally define a model that learns structural relationships between objects and their model chooses tree structured relationships between animals, given data about animals and their properties, but it chooses a linear representation (the liberal-conservative spectrum) when supplied with information about the voting patterns of Supreme Court judges!
 
-
+By connecting ideas from various disciplines; cognitive science (Griffiths and Tenenbaum, 2001, 2003, 2005, 2008), political Science (Axelrod 1976) and information theory (DeDeo et. al 2013), this paper has demonstrated how a theory of human causal learning, naturally gives rise to important information theoretic measures and how these may be combined with texts from utterances of a collective's members, to measure that collective's cognitive diversity. Using recent opinion pieces and testimonies about the 2008 financial crisis as an example data set, I described and demonstrated a potential ``hiring and firing'' algorithm, if cognitive diversity were to be seen as a goal. I am hopeful that the tools that are here brought together and presented have potential to illuminate our understanding of collective thinking processes in the presence and absence of cognitive diversity; this paper was a first step.
 
 
 \section{References}
 
 
-Anderson, John R. 2008. \textit{Cognitive Psychology and its Implications}. Worth Publishers; Seventh Edition edition.
+Anderson John R. 2008. \textit{Cognitive Psychology and its Implications}. Worth Publishers; Seventh Edition edition.
 \\
 
 %Ansolabehere, Stephen and Jones, Philip E. 2010. Constituents' Responses to Congressional Roll-Call Voting. \textit{American Journal of Political Science}, Vol. 54, No. 3
 
-Axelrod, R. (ed.) (1976). \textit{Structure of decision : the cognitive maps of political elites}. Princeton : Princeton University Press.
+Axelrod R. (ed) (1976). \textit{Structure of decision : the cognitive maps of political elites}. Princeton : Princeton University Press.
 \\
 
 %Berinsky, Adam J., Huber, Gregory A. and Lenz, Gabriel S. 2012. Evaluating Online Labor Markets for Experimental Research: Amazon.com’s Mechanical Turk. \textit{Political Analysis} 20:351–368.
@@ -377,23 +384,23 @@ Axelrod, R. (ed.) (1976). \textit{Structure of decision : the cognitive maps of 
 %Bostrom, A. M., Morgan, G., Fischhoff, B. and Daniel Read. 1994. What Do People Know About Global Climate Change? \textit{Risk Analysis} Vol 14. No. 6.
 %\\
 
-Converse, PE. 1965. The Nature of belief systems in mass publics, In \textit{Ideology and discontent}, ed. Apter, D.E. New York: Free Press.
+Converse PE. 1965. The Nature of belief systems in mass publics, In \textit{Ideology and discontent}, ed. Apter, D.E. New York: Free Press.
 \\
 
 %Chong, Dennis, and James N. Druckman. (2007). Framing Theory. \textit{Annual Review of Political Science}. Vol. 10: 103-126.
 %\\
-DeDeo, S., R. Hawkins, S. Klingenstein, and T. Hitchcock (2013). \textit{Bootstrap methods for the
+DeDeo S., R. Hawkins, S. Klingenstein, and T. Hitchcock (2013). \textit{Bootstrap methods for the
 empirical study of decision-making and information ows in social systems}. eprint
 arXiv:1302.0907, December 2013. \href{http://arxiv.org/abs/1302.0907}{http://arxiv.org/abs/1302.0907}. Entropy, in press.
 \\
 
-Gallager, R. G. (1968) ``Information Theory and Reliable Communication,'' Wiley, New York.
+Gallager R. G. (1968) ``Information Theory and Reliable Communication,'' Wiley, New York.
 \\
 
-Griffiths, T. L., Kemp, C., and Tenenbaum, J. B. (2008). \textit{Bayesian models of cognition.} In Ron Sun (ed.), Cambridge Handbook of Computational Cognitive Modeling. Cambridge University Press.
+Griffiths T. L., Kemp, C., and Tenenbaum, J. B. (2008). \textit{Bayesian models of cognition.} In Ron Sun (ed.), Cambridge Handbook of Computational Cognitive Modeling. Cambridge University Press.
 \\
 
-Griffiths, T.L., \& Tenenbaum, J.B. (2005). \textit{Structure and strength in causal induction.} Cognitive Psychology 51, 334-384. (This paper was formerly titled "Elemental causal induction.")
+Griffiths T.L., \& Tenenbaum, J.B. (2005). \textit{Structure and strength in causal induction.} Cognitive Psychology 51, 334-384. (This paper was formerly titled "Elemental causal induction.")
 \\
 
 %Grimmer, Justin, and Gary King. 2011. General Purpose Computer-Assisted Clustering and Conceptualization. \textit{Proceedings of the National Academy of Sciences} Copy at http://j.mp/j4xyav
@@ -401,22 +408,26 @@ Griffiths, T.L., \& Tenenbaum, J.B. (2005). \textit{Structure and strength in ca
 
 %Hamming, Richard W. (1950), ``Error detecting and error correcting codes'', \textit{Bell System Technical Journal}. 29 (2): 147–160, MR 0035935.
 %\\
-
+Hong L., Page S. (2004) \textit{Groups of diverse problem solvers can outperform groups of high-ability problem solvers.} Proceedings of the National Academy of Sciences 101(46): 16385–16389.
+\\
 %Lewis-Beck, M.S and Stegmaier, M. 2000. Economic Determinants of Electoral Outcomes. \textit{Annual Review of Political Science} Vol 3:183-219.
 %\\
+Landemore H., Elster J. (eds) (2012). \textit{Collective wisdom: Principles and mechanisms}. Cambridge University Press, Cambridge.
 
-Lombrozo, T. 2006. The structure and function of explanations. \textit{Trends in Cognitive Sciences}, Vol. 10(10): 464-470.
+Lombrozo T. (2006). The structure and function of explanations. \textit{Trends in Cognitive Sciences}, Vol. 10(10): 464-470.
 \\
 
+Pearl, J. (1988)., \textit{Probabilistic Reasoning in Intelligent Systems.} Morgan Kaufmann, San Mateo, CA.
+\\
 %Maibach, E.W, Leiserowitz, A. Roser-Renouf, C. and Merty, C.K. 2011. Identifying Like-Minded Audiencesfor Global Warming Public Engagement Campaigns: an Audience Segmentation Analysis and Tool Development. PloS One, 6(3): e17571.
 %\\
 
 %Sears, D.O., Lau, R.R., Tyler, T.R., Allen H.M. 1979. Self-interest vs. Symbolic Politics in Policy Attitudes and Presidential Voting. \textit{The American Political Science Review}, Vol. 74(3):670-684.
 %\\
-Tenenbaum, J. B., T. L. Griffiths (2003), \textit{Theory-based causal inference.} Advances in Neural Information Processing Systems 15. Becker, S., Thrun, S., and Obermayer. (eds). Cambridge, MIT Press, 2003, 35-42.
+Tenenbaum J. B., T. L. Griffiths (2003), \textit{Theory-based causal inference.} Advances in Neural Information Processing Systems 15. Becker, S., Thrun, S., and Obermayer. (eds). Cambridge, MIT Press, 2003, 35-42.
 \\
 
-Tenenbaum, J. B., T. L. Griffiths (2001), \textit{Structure learning in human causal induction.} Advances in Neural Information Processing Systems 13. Leen, T., Dietterich, T., and Tresp, V., Cambridge, MIT Press, 2001, 59-65.
+Tenenbaum J. B., T. L. Griffiths (2001), \textit{Structure learning in human causal induction.} Advances in Neural Information Processing Systems 13. Leen, T., Dietterich, T., and Tresp, V., Cambridge, MIT Press, 2001, 59-65.
 \\
 %Aklin, M. and Urpelainen, J. 2013. Debating Clean Energy: Frames, counter frames and audiences. \textit{Global Environmental Change}, In press.
 %\\
@@ -424,7 +435,7 @@ Tenenbaum, J. B., T. L. Griffiths (2001), \textit{Structure learning in human ca
 %Weitzman, ML. 1992. On Diversity. \textit{The Quarterly Journal of Economics} 107(2): 363-405.
 %\\
 
-Zaller, J. 1991. Information, Values and Opinion. \textit{The American Political Science Review}, Vol 85(4):1215-1237.
+Zaller J. (1991). Information, Values and Opinion. \textit{The American Political Science Review}, Vol 85(4):1215-1237.
 
 
 \section*{Appendix}

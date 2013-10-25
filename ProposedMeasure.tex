@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
 \usepackage{hyperref}
 \usepackage{mathrsfs}
 \newcommand{\ts}{\textsuperscript}
@@ -158,12 +159,8 @@ where $H(\cdot)$ is defined as the Shannon Entropy and where the $\omega_i$s are
 \text{Potential Diversity}(n)=\log_2(n),
 \end{equation}
 which in the special case where $n=2$ is equal to $1$. In other words, it is a result of Equation ~\ref{eq:n-point}, that $0 \leq \text{JSD}_n \leq \log_2(n).$
-\begin{figure} \label{fig:pot}
-%There must be a figure called potential
-\includegraphics[width=80mm]{potential.pdf}
-\caption{The potential diversity log$_2(n)$.}
-\end{figure}
-We can thus see (in Figure ~\ref{fig:pot}) that the potential diversity (as defined in Equation ~\ref{eq:potential}) is an increasing function of the number of individuals, as intuition would suggest.
+
+We can thus see that the potential diversity ($\log_2(n)$) is an increasing and concave function of the number of individuals, as intuition would suggest.
 Further, it is the case that for any tuple of probability distributions, for example the two-tuple ($P$, $Q$), the JSD$_n$ over just that tuple has the same numerical value as JSD$_{nk}$, over any multiple of this tuple ($k$ times the same entries as in the original tuple, where $k$ is a positive integer). For example JSD$_2(P, Q)=$ JSD$_4(P, P, Q, Q)$. Taken together, Equation ~\ref{eq:potential} and this last point represent a problem for a measure of diversity, as having two, very different view-points in a collective of two people seems to mean, intuitively, that the collective of two is very diverse, while having two even radically different view-points in a collective of a hundred people seems to be decidedly less diverse. But luckily, there is an easy fix; devide the JSD$_n$, by potential diversity log$_2(n)$ so that the final diversity measure is:
 \begin{equation} \label{eq:diversity}
 \text{Cognitive Diversity}_n(P_1, P_2, \ldots, P_n)=\sqrt{\frac{1}{\log_2(n)}\text{JSD}_n(P_1, P_2, \ldots, P_n)}.
@@ -174,7 +171,15 @@ The cognitive diversity as defined in Equation ~\ref{eq:diversity}, as it is nor
 \section{Causal Explanations of the 2008 Foreclosure Crisis}
 %Discuss the table and distances in terms of the graphs from which they were computed. How are we to understand the numbers in light of the belief systems. Give a few examples on how belief systems are constructed. Make 5 person committee so as to maximize diversity.
 
-Since the economic crisis\footnote{As it is generally accepted that the economic crisis was the result of a housing foreclosure crisis, or subprime mortgage crisis, these terms are here used as if they were interchangable. This is a simplification that should not matter, as one could add to every belief system the same extension, which has the same effect on the discussed measures as if this extension is simply collapsed into one effect node which includes all of these terms.} commenced in 2008, many narratives seeking to explain the onset of this costly phenomenon have appeared in public discussions (including four congressional committees), speeches, newspaper articles, academic papers and books. I thus use the statements of a few important analysts of the crisis to show how beliefs can be represented as Bayesian Networks and how the cognitive diversity of a collection of such experts is then approximately measured\footnote{The python code for this exercise can be found on my \href{https://github.com/jac2130}{github site}.}. The material, alongside some explanations of how it is used to construct the cognitive maps, exhibited in Figure ~\ref{fig:committe1}, can be found in the Appendix.
+Since the economic crisis\footnote{As it is generally accepted that the economic crisis was the result of a housing foreclosure crisis, or subprime mortgage crisis, these terms are here used as if they were interchangable. This is a simplification that should not matter, as one could add to every belief system the same extension, which has the same effect on the discussed measures as if this extension is simply collapsed into one effect node which includes all of these terms.} commenced in 2008, many narratives seeking to explain the onset of this costly phenomenon have appeared in public discussions (including four congressional committees), speeches, newspaper articles, academic papers and books. I thus use the statements of a few important analysts of the crisis to show how beliefs can be represented as Bayesian Networks and how the cognitive diversity of a collective of such experts is then approximately measured\footnote{The python code for this exercise can be found on my \href{https://github.com/jac2130/DiversityMeasures/blob/master/BayesNets.py}{github site}.}. The material, alongside some explanations of how it is used to construct the cognitive maps, exhibited in Figure ~\ref{fig:committe1}, can be found in the Appendix, although I shall give one example here:
+\\
+In the Financial Crisis Inquiry Commission Staff audiotape of the interview with Warren Buffett on the 26\ts{th} of May, 2010, the Berkshire Hathaway CEO was recorded as saying the following:
+
+\begin{quotation}
+The basic cause was, you know, embedded in, partly in psychology, partly in reality in a growing and finally pervasive belief that house prices couldn't go down. And everybody succumbed, virtually everybody succumbed to that. But that's, the only way you get a bubble is when basically a very high percentage of the population buys into some originally sound premise \ldots
+\end{quotation}
+
+As Mr. Buffett only spoke of one cause, I will humerously name it $CD$: Cognitive Diversity, (virtually everybody succumbed) and as Buffet blamed the onset of the crisis on the lack of $CD$, I arrive at Mr. Buffet's CM (Figure ~\ref{fig:buffet}).
 
 \begin{figure}
         \centering
@@ -314,19 +319,21 @@ It is important to experiment with these measures in order to get a better under
 \centering
 \footnotesize
 \begin{tabular}{l*{10}{c}r}
-Committee &   Bernanke   &   Paulson   &   Morgenthau   &   Becker   &   Stiglitz   &   Born   &   Greenspan   &   Buffett   &   Krugman   &   Rodrik   &   Soros\\
+Committee &   Bernanke   &   Paulson   &   \textcolor{ForestGreen}{Morgenthau}   &   \textcolor{ForestGreen}{Becker}   &   \textcolor{ForestGreen}{Stiglitz}   &   Born   &   Greenspan   &   \textcolor{ForestGreen}{Buffett}   &   \textcolor{ForestGreen}{Krugman}   &   \textcolor{ForestGreen}{Rodrik}   &   Soros\\
 \hline
-$n=10$     & -0.0112 & -0.0055 & 0.0054 & -0.0018 & 0.0058 & -0.0091 & -0.0107 & -0.003  & -0.006  & -0.007  & -0.0099  \\
-$n=9$      &         & -0.0078 & 0.0049 & -0.0036 & 0.0049 & -0.0094 & -0.0135 & -0.0047 & -0.0067 & -0.0081 & -0.0125\\
-$n=8$      &         & -0.009  &  0.004 & -0.0037 & 0.0027 & -0.0125 &         & -0.0073 & -0.0099 & -0.0094 & -0.0161\\
-$n=7$      &         & -0.0133 & 0.0015 & -0.0049 & 0.0031 & -0.015  &         & -0.0111 & -0.0145 & -0.0126 &        \\
-$n=6$      &         & -0.0206 &-0.0016 & -0.0037 & 0.002  &         &         & -0.0175 & -0.0192 & -0.0116 &        \\
+$n=10$     & \textcolor{red}{-0.0112} & -0.0055 & 0.0054 & -0.0018 & 0.0058 & -0.0091 & -0.0107 & -0.003  & -0.006  & -0.007  & -0.0099  \\
+$n=9$      &         & -0.0078 & 0.0049 & -0.0036 & 0.0049 & -0.0094 & \textcolor{red}{-0.0135} & -0.0047 & -0.0067 & -0.0081 & -0.0125\\
+$n=8$      &         & -0.009  &  0.004 & -0.0037 & 0.0027 & -0.0125 &         & -0.0073 & -0.0099 & -0.0094 & \textcolor{red}{-0.0161}\\
+$n=7$      &         & -0.0133 & 0.0015 & -0.0049 & 0.0031 & \textcolor{red}{-0.015}  &         & -0.0111 & -0.0145 & -0.0126 &        \\
+$n=6$      &         & \textcolor{red}{-0.0206} &-0.0016 & -0.0037 & 0.002  &         &         & -0.0175 & -0.0192 & -0.0116 &        \\
 \hline
-$n=5$      &         &         &-0.0053 & -0.0041 & -0.0002&         &         & -0.0236 & -0.026  & -0.0213 &        \\
+$n=5$      &         &         &\textcolor{ForestGreen}{-0.0053} & \textcolor{ForestGreen}{-0.0041} & \textcolor{ForestGreen}{-0.0002}&         &         & \textcolor{ForestGreen}{-0.0236} & \textcolor{ForestGreen}{-0.026}  & \textcolor{ForestGreen}{-0.0213} &        \\
 %\subsection{Notes}
 \end{tabular} \hspace*{-3.5cm}
-\caption{Morgenthau, Becker, Stiglitz, Buffett, Krugman and Rodrik survived the iterated deletion of diversity minimizing elements, for a maximally diverse group of 5. (the algorithm is as in Equation ~\ref{eq:min})} \label{table:minimize}
+\caption{This table represents the algorithm of iterated deletion of diversity minimizing elements (the algorithm is as in Equation ~\ref{eq:min}). Morgenthau, Becker, Stiglitz, Buffett, Krugman and Rodrik survived the iterated deletion of diversity minimizing elements, for a maximally diverse group of 5.} \label{table:minimize}
 \end{table}
+
+
 
 Interesting is also to measure how much each individual view of the crisis contributes to the diversity of the collection of views, so that an $l$ person team of experts can be constructed with the goal of maximizing diversity in mind (if that were to be found desirable)\footnote{In practice of course, there are many more conciderations aside from just cognitive diversity and it is likely never advisable to be entirely directed by such a uni-dimensional goal.}. There are two ways in which a maximally diverse group of, say $5$, could be constructed from a group of $10$: one way is to repeatedly subtract that person from the group whose presence contributes the least to (or subtracts the most from) the diversity of the group, (i.e. Equation ~\ref{eq:min}) and the other is to, starting from the cognitive distance of two people's graphs, repeatedly adding that additional person whose inclusion maximizes the cognitive diversity of the larger group (Equation ~\ref{eq:max}):
 \begin{equation}\label{eq:min}
@@ -357,7 +364,7 @@ for $k$ causal effect parameters, where the ``Noisy-OR'' parameterization is use
 
 %Kemp et al. formally define a model that learns structural relationships between objects and their model chooses tree structured relationships between animals, given data about animals and their properties, but it chooses a linear representation (the liberal-conservative spectrum) when supplied with information about the voting patterns of Supreme Court judges!
 
-
+By connecting ideas from various disciplines; cognitive science (Griffiths and Tenenbaum, 2001, 2003, 2005, 2008), political Science (Axelrod 1976) and information theory (DeDeo et. al 2013), this paper has demonstrated how a theory of human causal learning, naturally gives rise to important information theoretic measures and how these may be combined with texts from utterances of a collective's members, to measure that collective's cognitive diversity. Using recent opinion pieces and testimonies about the 2008 financial crisis as an example data set, I described and demonstrated a potential ``hiring and firing'' algorithm, if cognitive diversity were to be seen as a goal. I am hopeful that the tools that are here brought together and presented have potential to illuminate our understanding of collective thinking processes in the presence and absence of cognitive diversity. This paper was a first step.
 
 
 \section{References}

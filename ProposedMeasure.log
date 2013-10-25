@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.5.14)  25 OCT 2013 08:59
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.5.14)  25 OCT 2013 12:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -139,6 +139,46 @@ Package: subcaption 2012/01/12 v1.1d Sub-captions (AR)
 \c@subfigure=\count101
 \c@subtable=\count102
 )
+(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Package option `usenames' ignored on input line 216.
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+(/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen120
+\extrarowheight=\dimen121
+\NC@list=\toks20
+\extratabsurround=\skip49
+\backup@length=\skip50
+)
+\everycr=\toks21
+\minrowclearance=\skip51
+)
+\rownum=\count103
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+)
+(/usr/share/texmf/tex/latex/xcolor/svgnam.def
+File: svgnam.def 2007/01/21 v2.11 Predefined colors according to SVG 1.1 (UK)
+))
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2012/05/13 v6.82q Hypertext links for LaTeX
 
@@ -193,14 +233,14 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
-\@linkdim=\dimen120
-\Hy@linkcounter=\count103
-\Hy@pagecounter=\count104
+\@linkdim=\dimen122
+\Hy@linkcounter=\count104
+\Hy@pagecounter=\count105
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2012/05/13 v6.82q Hyperref: PDFDocEncoding definition (HO)
 )
-\Hy@SavedSpaceFactor=\count105
+\Hy@SavedSpaceFactor=\count106
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -212,16 +252,16 @@ Package hyperref Info: Plain pages OFF on input line 4077.
 Package hyperref Info: Backreferencing OFF on input line 4082.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4300.
-\c@Hy@tempcnt=\count106
+\c@Hy@tempcnt=\count107
 
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4653.
-\Fld@menulength=\count107
-\Field@Width=\dimen121
-\Fld@charsize=\dimen122
+\Fld@menulength=\count108
+\Field@Width=\dimen123
+\Fld@charsize=\dimen124
 Package hyperref Info: Hyper figures OFF on input line 5773.
 Package hyperref Info: Link nesting OFF on input line 5778.
 Package hyperref Info: Hyper index ON on input line 5781.
@@ -231,24 +271,24 @@ Package hyperref Info: Link coloring with OCG OFF on input line 5798.
 Package hyperref Info: PDF/A mode OFF on input line 5803.
 LaTeX Info: Redefining \ref on input line 5843.
 LaTeX Info: Redefining \pageref on input line 5847.
-\Hy@abspage=\count108
-\c@Item=\count109
-\c@Hfootnote=\count110
+\Hy@abspage=\count109
+\c@Item=\count110
+\c@Hfootnote=\count111
 )
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2012/05/13 v6.82q Hyperref driver for pdfTeX
-\Fld@listcount=\count111
-\c@bookmark@seq@number=\count112
+\Fld@listcount=\count112
+\c@bookmark@seq@number=\count113
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
-\Hy@SectionHShift=\skip49
+\Hy@SectionHShift=\skip52
 )
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
@@ -257,34 +297,34 @@ Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 (./ProposedMeasure.aux)
 \openout1 = `ProposedMeasure.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count113
-\scratchdimen=\dimen123
+\scratchcounter=\count114
+\scratchdimen=\dimen125
 \scratchbox=\box28
-\nofMPsegments=\count114
-\nofMParguments=\count115
-\everyMPshowfont=\toks20
-\MPscratchCnt=\count116
-\MPscratchDim=\dimen124
-\MPnumerator=\count117
-\makeMPintoPDFobject=\count118
-\everyMPtoPDFconversion=\toks21
+\nofMPsegments=\count115
+\nofMParguments=\count116
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count117
+\MPscratchDim=\dimen126
+\MPnumerator=\count118
+\makeMPintoPDFobject=\count119
+\everyMPtoPDFconversion=\toks23
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -304,7 +344,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 19.
+Package hyperref Info: Link coloring OFF on input line 20.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
@@ -312,55 +352,55 @@ Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count119
+\c@section@level=\count120
 )
-LaTeX Info: Redefining \ref on input line 19.
-LaTeX Info: Redefining \pageref on input line 19.
-LaTeX Info: Redefining \nameref on input line 19.
+LaTeX Info: Redefining \ref on input line 20.
+LaTeX Info: Redefining \pageref on input line 20.
+LaTeX Info: Redefining \nameref on input line 20.
 
 (./ProposedMeasure.out) (./ProposedMeasure.out)
 \@outlinefile=\write3
 \openout3 = `ProposedMeasure.out'.
 
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 28.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 29.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
+Underfull \hbox (badness 10000) in paragraph at lines 43--44
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 46--47
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
 
  []
 
 [3] <Graph0.pdf, id=68, 614.295pt x 578.16pt>
 File: Graph0.pdf Graphic file (type pdf)
  <use Graph0.pdf>
-Package pdftex.def Info: Graph0.pdf used on input line 56.
+Package pdftex.def Info: Graph0.pdf used on input line 57.
 (pdftex.def)             Requested size: 117.00119pt x 110.1162pt.
 
 <Graph1.pdf, id=69, 614.295pt x 578.16pt>
 File: Graph1.pdf Graphic file (type pdf)
  <use Graph1.pdf>
-Package pdftex.def Info: Graph1.pdf used on input line 63.
+Package pdftex.def Info: Graph1.pdf used on input line 64.
 (pdftex.def)             Requested size: 117.00119pt x 110.1162pt.
  [4]
-Underfull \hbox (badness 10000) in paragraph at lines 73--76
+Underfull \hbox (badness 10000) in paragraph at lines 74--77
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--78
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
 
  []
 
@@ -369,7 +409,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 77--78
 pdfTeX warning: pdflatex (file ./Graph1.pdf): PDF inclusion: multiple pdfs with
  page group included in a single page
 >] [6] [7] [8]
-Overfull \hbox (14.97649pt too wide) detected at line 124
+Overfull \hbox (14.97649pt too wide) detected at line 125
 \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 D\OMS/cmsy/m/n/12 j[][]\OT1
 /cmr/m/n/12 ) = [][] [][] \OML/cmm/m/it/12 P[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12
  D\OMS/cmsy/m/n/12 j[][]\OML/cmm/m/it/12 ; ^^Y[]; ^^Y[]\OT1/cmr/m/n/12 )\OML/cm
@@ -378,7 +418,7 @@ m/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^Y[]; ^^Y[]\OMS/cmsy/m/n/12 j[][]
  []
 
 
-Overfull \hbox (0.54843pt too wide) in paragraph at lines 130--131
+Overfull \hbox (0.54843pt too wide) in paragraph at lines 131--132
 []\OT1/cmr/m/n/12 where $\OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^
 Y[]; ^^Y[]\OMS/cmsy/m/n/12 j[][]\OT1/cmr/m/n/12 )$ and $\OML/cmm/m/it/12 P\OT1/
 cmr/m/n/12 (\OML/cmm/m/it/12 ^^Y[]\OMS/cmsy/m/n/12 j[][]\OT1/cmr/m/n/12 )$ are 
@@ -386,12 +426,12 @@ the dis-tri-bu-tions from
  []
 
 
-Overfull \hbox (34.40051pt too wide) detected at line 132
+Overfull \hbox (34.40051pt too wide) detected at line 133
 [][] \OT1/cmr/m/n/12 = [] [] \OML/cmm/m/it/12 :
  []
 
 [9]
-Overfull \hbox (19.18993pt too wide) in paragraph at lines 137--139
+Overfull \hbox (19.18993pt too wide) in paragraph at lines 138--140
 \OT1/cmr/m/n/12 able). For no-ta-tional con-ve-nience, I write $\OML/cmm/m/it/1
 2 P[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 D\OT1/cmr/m/n/12 )$, $\OML/cmm/m/it/12 P
 []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 D\OT1/cmr/m/n/12 )$, in-stead of $\OML/cmm/
@@ -399,92 +439,83 @@ m/it/12 P[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 D\OMS/cmsy/m/n/12 j[][]\OT1/cmr/m/
 n/12 )$
  []
 
-[10] <potential.pdf, id=144, 578.16pt x 433.62pt>
-File: potential.pdf Graphic file (type pdf)
- <use potential.pdf>
-Package pdftex.def Info: potential.pdf used on input line 163.
-(pdftex.def)             Requested size: 227.62204pt x 170.71231pt.
+[10] [11] [12]
 
+LaTeX Warning: Reference `fig:buffet' on page 13 undefined on input line 182.
 
-Package caption Warning: \label without proper \caption on input line 161.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `fig:pot' on page 11 undefined on input line 166.
-
-[11] [12 <./potential.pdf>] <bernanke.pdf, id=169, 722.7pt x 578.16pt>
+<bernanke.pdf, id=164, 722.7pt x 578.16pt>
 File: bernanke.pdf Graphic file (type pdf)
-
-<use bernanke.pdf>
-Package pdftex.def Info: bernanke.pdf used on input line 182.
+ <use bernanke.pdf>
+Package pdftex.def Info: bernanke.pdf used on input line 187.
 (pdftex.def)             Requested size: 77.99881pt x 62.398pt.
- <paulson.pdf, id=170, 722.7pt x 578.16pt>
+
+<paulson.pdf, id=165, 722.7pt x 578.16pt>
 File: paulson.pdf Graphic file (type pdf)
  <use paulson.pdf>
-Package pdftex.def Info: paulson.pdf used on input line 189.
+Package pdftex.def Info: paulson.pdf used on input line 194.
 (pdftex.def)             Requested size: 77.99881pt x 62.398pt.
 
-<morgenthau.pdf, id=171, 722.7pt x 578.16pt>
+<morgenthau.pdf, id=166, 722.7pt x 578.16pt>
 File: morgenthau.pdf Graphic file (type pdf)
  <use morgenthau.pdf>
-Package pdftex.def Info: morgenthau.pdf used on input line 194.
+Package pdftex.def Info: morgenthau.pdf used on input line 199.
 (pdftex.def)             Requested size: 77.99881pt x 62.398pt.
 
-<becker.pdf, id=172, 722.7pt x 578.16pt>
+<becker.pdf, id=167, 722.7pt x 578.16pt>
 File: becker.pdf Graphic file (type pdf)
  <use becker.pdf>
-Package pdftex.def Info: becker.pdf used on input line 199.
+Package pdftex.def Info: becker.pdf used on input line 204.
 (pdftex.def)             Requested size: 77.99881pt x 62.398pt.
 
-<stiglitz.pdf, id=173, 722.7pt x 578.16pt>
+<stiglitz.pdf, id=168, 722.7pt x 578.16pt>
 File: stiglitz.pdf Graphic file (type pdf)
  <use stiglitz.pdf>
-Package pdftex.def Info: stiglitz.pdf used on input line 204.
+Package pdftex.def Info: stiglitz.pdf used on input line 209.
 (pdftex.def)             Requested size: 77.99881pt x 62.398pt.
 
-<born.pdf, id=174, 722.7pt x 578.16pt>
+<born.pdf, id=169, 722.7pt x 578.16pt>
 File: born.pdf Graphic file (type pdf)
  <use born.pdf>
-Package pdftex.def Info: born.pdf used on input line 209.
+Package pdftex.def Info: born.pdf used on input line 214.
 (pdftex.def)             Requested size: 77.99881pt x 62.398pt.
 
-<greenspan.pdf, id=175, 722.7pt x 578.16pt>
+<greenspan.pdf, id=170, 722.7pt x 578.16pt>
 File: greenspan.pdf Graphic file (type pdf)
  <use greenspan.pdf>
-Package pdftex.def Info: greenspan.pdf used on input line 214.
+Package pdftex.def Info: greenspan.pdf used on input line 219.
 (pdftex.def)             Requested size: 77.99881pt x 62.398pt.
 
-<buffett.pdf, id=176, 722.7pt x 578.16pt>
+<buffett.pdf, id=171, 722.7pt x 578.16pt>
 File: buffett.pdf Graphic file (type pdf)
  <use buffett.pdf>
-Package pdftex.def Info: buffett.pdf used on input line 219.
+Package pdftex.def Info: buffett.pdf used on input line 224.
 (pdftex.def)             Requested size: 77.99881pt x 62.398pt.
 
-<krugman.pdf, id=177, 722.7pt x 578.16pt>
+<krugman.pdf, id=172, 722.7pt x 578.16pt>
 File: krugman.pdf Graphic file (type pdf)
  <use krugman.pdf>
-Package pdftex.def Info: krugman.pdf used on input line 224.
+Package pdftex.def Info: krugman.pdf used on input line 229.
 (pdftex.def)             Requested size: 77.99881pt x 62.398pt.
 
-<rodrik.pdf, id=178, 722.7pt x 578.16pt>
+<rodrik.pdf, id=173, 722.7pt x 578.16pt>
 File: rodrik.pdf Graphic file (type pdf)
  <use rodrik.pdf>
-Package pdftex.def Info: rodrik.pdf used on input line 229.
+Package pdftex.def Info: rodrik.pdf used on input line 234.
 (pdftex.def)             Requested size: 77.99881pt x 62.398pt.
 
-<soros.pdf, id=179, 722.7pt x 578.16pt>
+<soros.pdf, id=174, 722.7pt x 578.16pt>
 File: soros.pdf Graphic file (type pdf)
  <use soros.pdf>
-Package pdftex.def Info: soros.pdf used on input line 234.
+Package pdftex.def Info: soros.pdf used on input line 239.
 (pdftex.def)             Requested size: 77.99881pt x 62.398pt.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 245.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 250.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 245.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 250.
  [13] [14 <./bernanke.pdf> <./paulson.pdf
 
 pdfTeX warning: pdflatex (file ./paulson.pdf): PDF inclusion: multiple pdfs wit
@@ -526,47 +557,47 @@ pdfTeX warning: pdflatex (file ./rodrik.pdf): PDF inclusion: multiple pdfs with
 pdfTeX warning: pdflatex (file ./soros.pdf): PDF inclusion: multiple pdfs with 
 page group included in a single page
 >]
-Overfull \hbox (2.74872pt too wide) in paragraph at lines 255--256
+Overfull \hbox (2.74872pt too wide) in paragraph at lines 260--261
 []\OT1/cmr/m/n/12 George Soros (Chair-man of Soros Fund Man-age-ment and phi-la
 n-thropist,
  []
 
 
-Overfull \hbox (101.98587pt too wide) in paragraph at lines 260--282
+Overfull \hbox (101.98584pt too wide) in paragraph at lines 265--287
  []|  [] 
  []
 
 [15]
 File: stiglitz.pdf Graphic file (type pdf)
  <use stiglitz.pdf>
-Package pdftex.def Info: stiglitz.pdf used on input line 294.
+Package pdftex.def Info: stiglitz.pdf used on input line 299.
 (pdftex.def)             Requested size: 77.99881pt x 62.398pt.
 
-Underfull \hbox (badness 1394) in paragraph at lines 295--295
+Underfull \hbox (badness 1394) in paragraph at lines 300--300
 []\OT1/cmr/m/n/10.95 (a) |\OT1/cmr/m/n/10 Stiglitz (be-
  []
 
-<stiglitz2.pdf, id=307, 722.7pt x 578.16pt>
+<stiglitz2.pdf, id=301, 722.7pt x 578.16pt>
 File: stiglitz2.pdf Graphic file (type pdf)
  <use stiglitz2.pdf>
-Package pdftex.def Info: stiglitz2.pdf used on input line 301.
+Package pdftex.def Info: stiglitz2.pdf used on input line 306.
 (pdftex.def)             Requested size: 77.99881pt x 62.398pt.
  [16]
-Overfull \hbox (107.59698pt too wide) in paragraph at lines 313--328
+Overfull \hbox (107.59695pt too wide) in paragraph at lines 318--333
  []|  [] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[17 <./stiglitz2.pdf>] <beta.pdf, id=336, 578.16pt x 433.62pt>
+[17 <./stiglitz2.pdf>] [18] <beta.pdf, id=338, 578.16pt x 433.62pt>
 File: beta.pdf Graphic file (type pdf)
- <use beta.pdf>
-Package pdftex.def Info: beta.pdf used on input line 345.
+
+<use beta.pdf>
+Package pdftex.def Info: beta.pdf used on input line 352.
 (pdftex.def)             Requested size: 227.62204pt x 170.71231pt.
 
-[18]
-Overfull \hbox (64.8449pt too wide) detected at line 352
+Overfull \hbox (64.8449pt too wide) detected at line 359
 \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 D\OMS/cmsy/m/n/12 j[][]\OT1
 /cmr/m/n/12 ) = [][] [] [][] \OML/cmm/m/it/12 P[]\OT1/cmr/m/n/12 (\OML/cmm/m/it
 /12 D\OMS/cmsy/m/n/12 j[][]\OML/cmm/m/it/12 ; ^^Y[]; [] ; ^^Y[]\OT1/cmr/m/n/12 
@@ -575,121 +606,129 @@ Overfull \hbox (64.8449pt too wide) detected at line 352
  []
 
 
-Overfull \hbox (13.03511pt too wide) in paragraph at lines 354--355
+Overfull \hbox (13.03511pt too wide) in paragraph at lines 361--362
 \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^Y[]; [] ; ^^Y[]\OMS/cmsy/
 m/n/12 j[][]\OT1/cmr/m/n/12 )$, which in this case is sim-ply the prod-uct of t
 he marginals
  []
 
 [19 <./beta.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 366--368
+Underfull \hbox (badness 10000) in paragraph at lines 373--375
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 371--373
+Underfull \hbox (badness 10000) in paragraph at lines 378--380
+
+ []
+
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 387--389
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 380--382
-
- []
-
-
-Overfull \hbox (72.60014pt too wide) in paragraph at lines 385--389
+Overfull \hbox (72.60014pt too wide) in paragraph at lines 392--396
 \OT1/cmr/m/it/12 in so-cial sys-tems\OT1/cmr/m/n/12 . eprint arXiv:1302.0907, D
 e-cem-ber 2013. []http://arxiv.org/abs/1302.0907[].
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 385--389
+Underfull \hbox (badness 10000) in paragraph at lines 392--396
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 390--392
+Underfull \hbox (badness 10000) in paragraph at lines 397--399
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 393--395
+Underfull \hbox (badness 10000) in paragraph at lines 400--402
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 396--398
+Underfull \hbox (badness 10000) in paragraph at lines 403--405
 
  []
 
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 408--410
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no “ in font cmr12!
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 416--418
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 419--423
+Underfull \hbox (badness 10000) in paragraph at lines 417--419
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 436--437
+Underfull \hbox (badness 10000) in paragraph at lines 420--424
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 427--429
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 430--434
 
  []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 444--445
+Underfull \hbox (badness 10000) in paragraph at lines 447--448
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 455--456
 
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 457--458
+Underfull \hbox (badness 10000) in paragraph at lines 468--469
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 470--471
-
- []
-
-[23] [24]
-Underfull \hbox (badness 10000) in paragraph at lines 492--493
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 481--482
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 501--502
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 503--504
 
  []
 
-[25] [26] [27]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 563.
- [28]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 563.
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 512--513
+
+ []
+
+[26] [27] [28]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 574.
+ [29]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 574.
  (./ProposedMeasure.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 563.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 563.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 574.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 574.
 Package rerunfilecheck Info: File `ProposedMeasure.out' has not changed.
 (rerunfilecheck)             Checksum: B2602987DEC009A39798980DC95ED6A5;620.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 563.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 574.
  ) 
 Here is how much of TeX's memory you used:
- 6884 strings out of 495059
- 103295 string characters out of 3182030
- 199266 words of memory out of 3000000
- 9927 multiletter control sequences out of 15000+200000
+ 7597 strings out of 495059
+ 112462 string characters out of 3182030
+ 226758 words of memory out of 3000000
+ 10622 multiletter control sequences out of 15000+200000
  13130 words of font info for 50 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,12n,38p,2688b,472s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,12n,38p,2688b,486s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
@@ -705,10 +744,10 @@ r8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on ProposedMeasure.pdf (28 pages, 440057 bytes).
+Output written on ProposedMeasure.pdf (29 pages, 418125 bytes).
 PDF statistics:
- 517 PDF objects out of 1000 (max. 8388607)
- 371 compressed objects within 4 object streams
+ 515 PDF objects out of 1000 (max. 8388607)
+ 370 compressed objects within 4 object streams
  70 named destinations out of 1000 (max. 500000)
- 153 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 148 words of extra memory for PDF output out of 10000 (max. 10000000)
 
