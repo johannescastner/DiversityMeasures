@@ -326,4 +326,3 @@ min_6=min(t_6)
 S_5=S_6[1:]
 t_5=marginal_diversity(S_5)
 min_6=min(t_5)
-5
