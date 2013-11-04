@@ -1,18 +1,92 @@
-\relax 
-\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
-\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
-\global\let\oldcontentsline\contentsline
-\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
-\global\let\oldnewlabel\newlabel
-\gdef\newlabel#1#2{\newlabelxx{#1}#2}
-\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
-\AtEndDocument{\ifx\hyper@anchor\@undefined
-\let\contentsline\oldcontentsline
-\let\newlabel\oldnewlabel
-\fi}
-\fi}
-\global\let\hyper@last\relax 
-\gdef\HyperFirstAtBeginDocument#1{#1}
-\providecommand\HyField@AuxAddToFields[1]{}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {2}References}{4}{section.2}}
+\documentclass[12pt]{article}
+\usepackage{titling}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+\newcommand{\ts}{\textsuperscript}
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+
+
+
+\begin{document}
+
+%
+
+\title{Measures of Cognitive Distance and Diversity.}
+\author{Johannes  Castner, Marion Dumas}		% used by \maketitle
+
+\date \today
+\maketitle
+
+\section{Introduction}
+How can we measure and classify causal belief systems of Americans regarding the economic, political, social and technological causes and consequences of global climate change? How diverse are these beliefs, and how are they distributed in the population? What factors might explain this diversity? These are the questions that this study will analyze using a few novel methods.
+%The word "new" instead of "novel" reads cleaner and less pompous.
+\\
+Social scientists are gradually recognizing the potential of studying cognitive structures to understand large-scale social phenomena, due to the role of beliefs in driving behavior and the non-trivial dynamics of these beliefs (e.g. North, xx, Chwe, xx).
+%I would kill the word "driving" and change the sentence to "due to the roles beliefs play in determining behavior"
+In our context, public opinion about environmental issues is an important driver of environmental policy (ref) and behavior (ref). Opinion itself results from holding structured beliefs about how the world functions, as evidenced by recent work in cognitive science (Lombrozo, 2006, Anderson 2008, Gopnick and Schulz). This literature showed that we reason and learn on the basis of complex and coherent causal theories. As a result, people may draw different conclusions from the same data, experience or argument (ref). The more the phenomenon to be understood generates ambiguous data and the more it forces us to extrapolate from our experience, the more pre-existing mental models will determine opinion. People may also be more or less resistant to learning certain causal relationships depending on their centrality to the overall coherence of their world-view (ref). Thus, the process of individual opinion formation and opinion change must be understood in light of the underlying belief systems. For a collective, the diversity of its causal belief systems may help or hamper the quality of its collective decisions, but, since causal beliefs are subject to learning, conflict stemming from divergent beliefs may be easier to resolve than conflict stemming from a clash in values. If we learn to harness cognitive diversity, it can be made useful for increasing a collective's wisdom (Page and Hong). For all the reasons above, measuring and studying people's causal belief systems is necessary to understand public responses to complex, multi-scale phenomena such as as climate change. \\
+Rational choice theories take preferences over policy dimensions as given and predict how political processes aggregate them to determine outcomes. Consistent with this framework, public opinion research often focuses on measuring people's policy preferences. Our approach breaks with tradition, as we believe that a sole focus on attitudes, rather than on factors that can explain them, shrouds much of political life. The formulation of a preference is but the final step in the process of using our systems of knowledge to apprehend complex real-world problems. As an example, studies are inconclusive as to the effect of economic self-interest on policy preferences (Lewis-Beck and Stegmaier, 2000): this question cannot be resolved without knowing what people individually believe regarding the cause-effect links between a policy and their welfare. \\
+Some prior studies have measured beliefs relating to some of climate change's causes and some of its welfare consequences (Bostrom et al., 1994; Maibach et al. 2011; Krosnik et al. 2006). Ours differs from these studies in two ways. First, rather than presenting individuals with predefined causal concepts, we directly elicit salient concepts. Second, rather than measuring average responses to individual questions, we construct an individual's system of beliefs, capturing the interrelationships of a person's causal beliefs. As explained below, this allows us to measure the cognitive distance between individuals and construct a typology of belief systems. This is a necessary first step towards a theory of opinion dynamics since, having identified prevalent causal belief structures, quantitative cognitive theories of learning can be used to predict how people might respond to new information (Castner, xx). \\
+Our work relates most closely to framing theory (Druckman and Chong, 2007). Framing refers to the focusing of attention on specific aspects of an issue, which can result in substantial changes in opinion. From our perspective, a frame can be thought of as a close focus on a sub-part of the relevant belief system (Druckman and Chong, 2007). Work on framing has shown that frames matter greatly, that they can explain the instability of opinions and that this instability does not necessarily signal the public's incompetence, as was originally thought (Converse, 1965; Zaller, 1992). Framing theory, however, is currently incomplete because researchers have mostly looked at the functioning of frames in isolation. When they have interacted frames, they have found these interactions to have non-trivial effects.
+For example, Urpelainen and Aklin (2013) show that opposing arguments (frames) surrounding energy policy cancel out, leaving attitudes unchanged. Yet, sometimes, new arguments do take hold and shape preferences (ref). Understanding when and why arguments take hold on opinion is a challenge for framing theory, to which the study of belief systems may contribute.
+\\
+To carry out our analysis, we follow the pioneering work of Robert Axelrod (1976) of conceptualizing belief systems as causal maps. Causal maps are represented as directed graphs, where nodes are concepts and edges are asserted causal relations between these concepts (negative, zero etc.). To construct these causal maps for the U.S. population, we propose to survey a large number of respondents via Amazon Mechanical Turk (MTurk), a Web-based platform for recruiting and paying subjects to perform tasks. Although not as representative as national probability samples, MTurk has been shown to yield similar results (Berinsky, Huber and Lenz, 2012) for a fraction of the cost. To obtain as complete a graph as possible without priming a subject, we designed a method based on snow-ball sampling that is used to obtain social networks. Starting from one concept, the instrument uncovers the graph by iteratively asking for the causes and consequences of the concepts thus elicited. The rest of the survey includes questions about policy preferences, exposure to political information, exposure to climatic events, and socio-economic factors.
+Using this large sample of causal graphs, we first examine whether beliefs explain policy preferences by evaluating the degree to which the former predict the latter. Second, we construct a typology of belief systems.
+To build such a typology, we use information theoretic measures to measure the distance between causal maps and the diversity of collections of such maps. We also use the computer-assisted clustering tool developed by Grimmer and King (2011).
+From the sample of causal maps, we can obtain measures of cognitive diversity within and across clusters and geopolitical units (using the n-point, or generalized Jensen-Shannon Divergence), yielding a rich description of the American mental landscape related to climate change. A particularly important use of this typology is to identify predominant sources of disagreement in the population: do they concern end-goals, or disagreements about key causal mechanisms? \\
+The collection of belief systems and the typology resulting from this study will open many interesting avenues for future research and we here outline a few. Measuring how the relatedness of a person's sector of employment to different energy sectors is associated with increased prevalence of beliefs related to local economic impacts should be of particular interest. Framing theory (Druckman and Chong, 2007) suggests that exposure to competing frames can enrich a person's assessment of an issue. We can thus test the hypothesis that respondents living in urban areas of swing states, having been exposed to more competing frames, will have more complex graphs spanning a wider set of considerations than respondents in ideologically stable states. Of particular interest, is to compare the typology of the population's belief systems to the typology of representatives' belief systems. New tools from computational linguistics allow us to extract causal assertions from text. It is thus possible to obtain Congressmen's publicly held beliefs from the Congressional Record, which, when put in contrast with citizens' belief systems, will shed some new light on the relationship between the elected elite's and the public's opinions. Finally, equipped with the current types and distribution of causal belief systems surrounding climate change, we will be in a position to design experiments regarding processes of learning and opinion change that are relevant for understanding the public response to this global threat.
+\section{References}
+
+Anderson, John R. 2008. \textit{Cognitive Psychology and its Implications}. Worth Publishers; Seventh Edition edition.
+\\
+
+Ansolabehere, Stephen and Jones, Philip E. 2010. \textit{Constituents' Responses to Congres- sional Roll-Call Voting.} American Journal of Political Science, Vol. 54, No. 3.
+\\
+
+Aklin, M. and Urpelainen, J. 2013. \textit{Debating Clean Energy: Frames, counter frames and audiences.} Global Environmental Change, In press.
+\\
+
+Axelrod, R. 1976. \textit{Structure of decision : the cognitive maps of political elites}. Princeton: Princeton University Press.
+\\
+
+Berinsky, Adam J., Huber, Gregory A. and Lenz, Gabriel S. 2012. \textit{Evaluating Online Labor Markets for Experimental Research: Amazon.coms Mechanical Turk}. Political Analysis 20:351368.
+\\
+
+Bostrom, A. M., Morgan, G., Fischhoff, B. and Daniel Read. 1994. \textit{What Do People Know About Global Climate Change?} Risk Analysis Vol 14. No. 6.
+\\
+
+Converse, PE. 1965. \textit{The Nature of belief systems in mass publics}. In Ideology and discontent, ed. Apter, D.E. New York: Free Press.
+\\
+
+Chong, Dennis, and James N. Druckman. 2007. \textit{Framing Theory}. Annual Review of Political Science. Vol. 10: 103-126.
+\\
+
+Grimmer, Justin, and Gary King. 2011. \textit{General Purpose Computer-Assisted Clustering and Conceptualization}. Proceedings of the National Academy of Sciences Copy at http://j.mp/j4xyav
+\\
+
+Lewis-Beck, M.S and Stegmaier, M. 2000. \textit{Economic Determinants of Electoral Outcomes}. Annual Review of Political Science Vol 3:183-219.
+
+Lombrozo, T. 2006. \textit{The structure and function of explanations}. Trends in Cognitive Sciences, Vol. 10(10): 464-470.
+\\
+
+Maibach, E.W, Leiserowitz, A. Roser-Renouf, C. and Merty, C.K. 2011. \textit{Identifying Like-Minded Audiencesfor Global Warming Public Engagement Campaigns: an Audience Segmentation Analysis and Tool Development}. PloS One, 6(3): e17571.
+\\
+
+Sears, D.O., Lau, R.R., Tyler, T.R., Allen H.M. 1979. \textit{Self-interest vs. Symbolic Politics in Policy Attitudes and Presidential Voting}. The American Political Science Review, Vol. 74(3):670-684.
+\\
+
+Weitzman, ML. 1992. \textit{On Diversity}. The Quarterly Journal of Economics 107(2): 363- 405.
+\\
+
+Zaller, J. 1991. Information, Values and Opinion. The American Political Science Review, Vol 85(4):1215-1237.
+
+\end{document}             % End of document.

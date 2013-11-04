@@ -1,0 +1,17 @@
+#+TITLE: Measures of Cognitive Distance and Diversity.
+#+AUTHOR: Johannes Castner
+#+EMAIL: jac2130@columbia.edu
+
+#+LATEX_HEADER: \usepackage{hyperref}
+#+LATEX_HEADER: \hypersetup{
+#+LATEX_HEADER:     colorlinks,%
+#+LATEX_HEADER:     citecolor=black,%
+#+LATEX_HEADER:     filecolor=black,%
+#+LATEX_HEADER:     linkcolor=blue,%
+#+LATEX_HEADER:     urlcolor=black
+#+LATEX_HEADER: }
+
+
+#+BEGIN_abstract
+This paper explains and demonstrates how a model of human causal learning, /Causal Support/ (Tenenbaum & Griffiths, 2001, Griffiths & Tenenbaum, 2005), can be used to derive an Information theoretic quantity, the Jensen-Shannon Divergence, with which to measure /Cognitive Distance/, the degree to which two people differ in their opinions about the workings of the world. It is then shown how this measure is generalized to measure /Cognitive Diversity/, the degree of heterogeneity of opinions within a collection of individuals, such as a political party or a research department of a firm or university. These measures are important for theoretical and empirical work on the relationships between Cognitive Diversity and an organization's success in recognizing structure in the universe of interest and in making collective decisions.
+#+END_abstract
