@@ -1,0 +1,41 @@
+#+LATEX_HEADER: \usepackage{hyperref}
+#+LATEX_HEADER:\usepackage{amsmath}
+#+LATEX_HEADER: \usepackage{caption}
+#+LATEX_HEADER: \usepackage{subcaption}
+#+LATEX_HEADER: \usepackage{graphicx}
+#+LATEX_HEADER: \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+#+LATEX_HEADER: \hypersetup{
+#+LATEX_HEADER:     colorlinks,%
+#+LATEX_HEADER:     citecolor=black,%
+#+LATEX_HEADER:     filecolor=black,%
+#+LATEX_HEADER:     linkcolor=blue,%
+#+LATEX_HEADER:     urlcolor=black
+#+LATEX_HEADER: }
+#+BABEL: :session *Python-Johannes* :cache yes :results output graphics :exports output :tangle yes
+
+#+TITLE: Current Notes for Near Future Work.
+#+AUTHOR: Johannes Castner
+#+EMAIL: jac2130 [at] columbia [dot] edu
+
+#+LATEX: \newpage
+
+* TODO change my integration algorithms in my MA paper to be Gausian Quadratures :noexport:
+
+* TODO ask Johnathan Gross or someone else who knows, how to rebalance Bayesian Nets :noexport:
+...by adjusting alpha/beta so that the Nets only differ in structural terms, so that differences are not determined, merely by differences in marginal probabilities of variables. This might require coming up with an optimal re-weighting algorithm, or something along those lines.
+
+* Some calculations
+Here are some calculations that might help with fixing the integration in my MA paper, which are currently not done as well as they could be. Calculating the interpolating polynomial for any given set of points $x_1, \lodts, x_k$:
+
+$$\phi_k(x)=\prod_{m=1\ldotsN, m\not=k}\frac{x-x_m}{x_k-x_m}$$
+
+** python code :noexport:
+#+begin_src python :session *Python-Johannes*
+  from numpy import linspace, prod
+  xs=linspace(0, 1, 10)
+  phi = [lambda x: prod([(x-xm)/(xk-xm) for xm in xs if xm!=xk]) for xk in xs]
+
+#+end_src
+
+
+* Function determines the comunication rituals.
