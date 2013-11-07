@@ -19,7 +19,7 @@ from thinkbayes import * #must have thinkbayes.py in the current directory or in
 import scipy.stats
 from scipy.special import erf, erfinv
 from networkx import DiGraph
-from numpy import zeros, array, outer, linspace, mean, ones, copy, cos, tan, pi, sum #note that I'm replacing the built in "sum" function with the numpy version, as that allows for summing over multi-dimensional arrays, which is needed for the multi-variate integrals.
+from numpy import zeros, array, outer, linspace, mean, ones, copy, cos, tan, pi #note that I'm not replacing the built in "sum" function with the numpy version, because there is dependency on the usual sum function in the Entropy, Mixed, etc. methods, despite the fact that this would allow for summing over multi-dimensional arrays, which is needed for the multi-variate integrals. The fix is to call numpy.sum()
 from math import sqrt, log
 
 #import the beta function for priors on causal effects in BayesNet:
@@ -216,7 +216,7 @@ included in the link between two nodes, we integrate over this distribution.
                         elif type(self.node[i]['causes'][node])==float and self.node[i]['causes'][node]<=0:
                             tot *=((1.0-abs(self.node[i]['causes'][node]))**(1-outcome[node]))
 
-                    pr[i]=1-sum(tot) if outcome[i]==1 else 1-(1-sum(tot))
+                    pr[i]=1-numpy.sum(tot) if outcome[i]==1 else 1-(1-numpy.sum(tot))
                     p_out *=pr[i]
 
             self.Set(outcome, p_out)

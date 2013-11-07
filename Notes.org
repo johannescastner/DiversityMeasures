@@ -31,11 +31,17 @@ $$\phi_k(x)=\prod_{m=1\ldotsN, m\not=k}\frac{x-x_m}{x_k-x_m}$$
 
 ** python code :noexport:
 #+begin_src python :session *Python-Johannes*
+
+  sys.path.append('/home/johannes/Documents/DiversityMeasure/')
   from numpy import linspace, prod
-  xs=linspace(0, 1, 10)
-  phi = [lambda x: prod([(x-xm)/(xk-xm) for xm in xs if xm!=xk]) for xk in xs]
+  import gaussxw
+  #xs=linspace(0, 1, 10)
+  #phi = [lambda x: prod([(x-xm)/(xk-xm) for xm in xs if xm!=xk]) for xk in xs]
 
 #+end_src
+
+#+RESULTS:
+| /usr/local/lib/python2.7/dist-packages/setuptools-0.6c11-py2.7.egg | /usr/local/lib/python2.7/dist-packages/networkx-1.7-py2.7.egg | /usr/share/emacs/24.2/etc | /usr/lib/python2.7 | /usr/lib/python2.7/plat-x86_64-linux-gnu | /usr/lib/python2.7/lib-tk | /usr/lib/python2.7/lib-old | /usr/lib/python2.7/lib-dynload | /home/johannes/.local/lib/python2.7/site-packages | /usr/local/lib/python2.7/dist-packages | /usr/lib/python2.7/dist-packages | /usr/lib/python2.7/dist-packages/PILcompat | /usr/lib/python2.7/dist-packages/gst-0.10 | /usr/lib/python2.7/dist-packages/gtk-2.0 | /usr/lib/pymodules/python2.7 | /usr/lib/python2.7/dist-packages/ubuntu-sso-client | /usr/lib/python2.7/dist-packages/ubuntuone-client | /usr/lib/python2.7/dist-packages/ubuntuone-control-panel | /usr/lib/python2.7/dist-packages/ubuntuone-couch | /usr/lib/python2.7/dist-packages/ubuntuone-storage-protocol | /usr/lib/python2.7/dist-packages/wx-2.8-gtk2-unicode | /home/johannes/Documents/DiversityMeasures/ | /home/johannes/Documents/DiversityMeasure/ | /home/johannes/Documents/DiversityMeasure/ |
 
 
 * Function determines the comunication rituals.

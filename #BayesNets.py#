@@ -19,12 +19,74 @@ from thinkbayes import * #must have thinkbayes.py in the current directory or in
 import scipy.stats
 from scipy.special import erf, erfinv
 from networkx import DiGraph
-from numpy import zeros, array, outer, linspace, mean
+from numpy import zeros, array, outer, linspace, mean, ones, copy, cos, tan, pi #note that I'm not replacing the built in "sum" function with the numpy version, because there is dependency on the usual sum function in the Entropy, Mixed, etc. methods, despite the fact that this would allow for summing over multi-dimensional arrays, which is needed for the multi-variate integrals. The fix is to call numpy.sum()
 from math import sqrt, log
 
 #import the beta function for priors on causal effects in BayesNet:
 import matplotlib.pyplot as plt
 from scipy.stats import beta
+
+#The below two functions are borrowed from the suplimentary materials of the book "Computational Physics", written by Mark Newman, for integration of functions or data points, using the gaussian quadrature approach:
+
+######################################################################
+#
+# Functions to calculate integration points and weights for Gaussian
+# quadrature
+#
+# x,w = gaussxw(N) returns integration points x and integration
+#           weights w such that sum_i w[i]*f(x[i]) is the Nth-order
+#           Gaussian approximation to the integral int_{-1}^1 f(x) dx
+# x,w = gaussxwab(N,a,b) returns integration points and weights
+#           mapped to the interval [a,b], so that sum_i w[i]*f(x[i])
+#           is the Nth-order Gaussian approximation to the integral
+#           int_a^b f(x) dx
+#
+# This code finds the zeros of the nth Legendre polynomial using
+# Newton's method, starting from the approximation given in Abramowitz
+# and Stegun 22.16.6.  The Legendre polynomial itself is evaluated
+# using the recurrence relation given in Abramowitz and Stegun
+# 22.7.10.  The function has been checked against other sources for
+# values of N up to 1000.  It is compatible with version 2 and version
+# 3 of Python.
+#
+# Written by Mark Newman <mejn@umich.edu>, June 4, 2011
+# You may use, share, or modify this file freely
+#
+######################################################################
+
+def gaussxw(N):
+
+    # Initial approximation to roots of the Legendre polynomial
+    a = linspace(3,4*N-1,N)/(4*N+2)
+    x = cos(pi*a+1/(8*N*N*tan(a)))
+
+    # Find roots using Newton's method
+    epsilon = 1e-15
+    delta = 1.0
+    while delta>epsilon:
+        p0 = ones(N,float)
+        p1 = copy(x)
+        for k in range(1,N):
+            p0,p1 = p1,((2*k+1)*x*p1-k*p0)/(k+1)
+        dp = (N+1)*(p0-x*p1)/(1-x*x)
+        dx = p1/dp
+        x -= dx
+        delta = max(abs(dx))
+
+    # Calculate the weights
+    w = 2*(N+1)*(N+1)/(N*N*(1-x*x)*dp*dp)
+
+    return x,w
+
+def gaussxwab(N,a,b):
+    x,w = gaussxw(N)
+    return 0.5*(b-a)*x+0.5*(b+a),0.5*(b-a)*w
+
+##########################################################################################
+
+#constants:
+
+int_points, weights=gaussxwab(100,0, 1)
 
 class BayesNet(DiGraph, Joint):
     """
@@ -143,18 +205,21 @@ included in the link between two nodes, we integrate over this distribution.
                     for node in self.node[i]['causes']:
                         if type(self.node[i]['causes'][node])==float and self.node[i]['causes'][node]>=0:
                             tot *=((1.0-self.node[i]['causes'][node])**outcome[node])
-                        elif self.node[i]['causes'][node] =='+':
-                            tot=outer(tot, [self.effect_pdf(w)*(1.0-w)**outcome[node] for w in linspace(0, 1, 100)])
 
+                            #Integral using gaussian quadrature
+                        elif self.node[i]['causes'][node] =='+':
+                            tot=outer(tot, [w*self.effect_pdf(x)*(1.0-x)**outcome[node] for x, w in zip(int_points, weights)])
+
+                            #Integral using gaussian quadrature
                         elif self.node[i]['causes'][node] =='-':
-                            tot=outer(tot, [self.effect_pdf(w)*(1.0-w)**(1-outcome[node]) for w in linspace(0, 1, 100)])
+                            tot=outer(tot, [w*self.effect_pdf(x)*(1.0-x)**(1-outcome[node]) for x, w in zip(int_points, weights)])
                         elif type(self.node[i]['causes'][node])==float and self.node[i]['causes'][node]<=0:
                             tot *=((1.0-abs(self.node[i]['causes'][node]))**(1-outcome[node]))
 
-                    pr[i]=1-mean(tot) if outcome[i]==1 else 1-(1-mean(tot))
+                    pr[i]=1-numpy.sum(tot) if outcome[i]==1 else 1-(1-numpy.sum(tot)) #Need to use numpy.sum to summ all entries in these multi-dimensional arrays.
                     p_out *=pr[i]
 
-            self.Set(outcome, p_out)
+            self.Set(outcome, abs(p_out)) #have to take the absolute value as probabilities that are very close to 0 might become slightly negative, due to rounding errors
 
     def add_nodes_from(self, nodes, **attr):
         H=DiGraph()
@@ -311,6 +376,7 @@ def sort_distances(distances, committee_names):
     n, m=distances.shape
     return sorted([(distances[i][j], committee_names[i], committee_names[j]) for i in range(m) for j in range(n)], reverse=True)
 
+committee=make_committee(alpha=2, beta=2)
 S_9=committee[1:]
 t_9=marginal_diversity(S_9)
 min_9=min(marginal_diversity(S_9))
@@ -326,4 +392,3 @@ min_6=min(t_6)
 S_5=S_6[1:]
 t_5=marginal_diversity(S_5)
 min_6=min(t_5)
-
