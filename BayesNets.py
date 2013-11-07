@@ -186,6 +186,7 @@ included in the link between two nodes, we integrate over this distribution.
         self.SetProbs()
 
     def SetProbs(self):
+        #This is the method that needs to be exchanged if the BayesNet is to take on different forms (continuous variables, different dependencies etc.)
         self.d={}
         self.support=[]
         n=len(self.nodes())
@@ -216,10 +217,10 @@ included in the link between two nodes, we integrate over this distribution.
                         elif type(self.node[i]['causes'][node])==float and self.node[i]['causes'][node]<=0:
                             tot *=((1.0-abs(self.node[i]['causes'][node]))**(1-outcome[node]))
 
-                    pr[i]=1-numpy.sum(tot) if outcome[i]==1 else 1-(1-numpy.sum(tot))
+                    pr[i]=1-numpy.sum(tot) if outcome[i]==1 else 1-(1-numpy.sum(tot)) #Need to use numpy.sum to summ all entries in these multi-dimensional arrays.
                     p_out *=pr[i]
 
-            self.Set(outcome, p_out)
+            self.Set(outcome, abs(p_out)) #have to take the absolute value as probabilities that are very close to 0 might become slightly negative, due to rounding errors
 
     def add_nodes_from(self, nodes, **attr):
         H=DiGraph()
