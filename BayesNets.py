@@ -377,19 +377,20 @@ def sort_distances(distances, committee_names):
     n, m=distances.shape
     return sorted([(distances[i][j], committee_names[i], committee_names[j]) for i in range(m) for j in range(n)], reverse=True)
 
-committee=make_committee(alpha=2, beta=2)
-S_9=committee[1:]
-t_9=marginal_diversity(S_9)
-min_9=min(marginal_diversity(S_9))
-S_8=S_9[:5]+S_9[6:]
-t_8=marginal_diversity(S_8)
-min_8=min(t_8)
-S_7=S_8[:-1]
-t_7=marginal_diversity(S_7)
-min_7=min(t_7)
-S_6=S_7[:4]+S_7[5:]
-t_6=marginal_diversity(S_6)
-min_6=min(t_6)
-S_5=S_6[1:]
-t_5=marginal_diversity(S_5)
-min_6=min(t_5)
+def masters_paper():
+    committee=make_committee(alpha=2, beta=2)
+    S_9=committee[1:]
+    t_9=marginal_diversity(S_9)
+    min_9=min(marginal_diversity(S_9))
+    S_8=S_9[:5]+S_9[6:]
+    t_8=marginal_diversity(S_8)
+    min_8=min(t_8)
+    S_7=S_8[:-1]
+    t_7=marginal_diversity(S_7)
+    min_7=min(t_7)
+    S_6=S_7[:4]+S_7[5:]
+    t_6=marginal_diversity(S_6)
+    min_6=min(t_6)
+    S_5=S_6[1:]
+    t_5=marginal_diversity(S_5)
+    min_6=min(t_5)
