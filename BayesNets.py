@@ -19,7 +19,7 @@ from thinkbayes import * #must have thinkbayes.py in the current directory or in
 import scipy.stats
 from scipy.special import erf, erfinv
 from networkx import DiGraph
-from numpy import zeros, array, outer, linspace, mean, ones, copy, cos, tan, pi
+from numpy import zeros, array, outer, linspace, mean, ones, copy, cos, tan, pi, sum #note that I'm replacing the built in "sum" function with the numpy version, as that allows for summing over multi-dimensional arrays, which is needed for the multi-variate integrals.
 from math import sqrt, log
 
 #import the beta function for priors on causal effects in BayesNet:
@@ -205,15 +205,18 @@ included in the link between two nodes, we integrate over this distribution.
                     for node in self.node[i]['causes']:
                         if type(self.node[i]['causes'][node])==float and self.node[i]['causes'][node]>=0:
                             tot *=((1.0-self.node[i]['causes'][node])**outcome[node])
-                        elif self.node[i]['causes'][node] =='+':
-                            tot=outer(tot, [self.effect_pdf(w)*(1.0-w)**outcome[node] for w in linspace(0, 1, 100)])
 
+                            #Integral using gaussian quadrature
+                        elif self.node[i]['causes'][node] =='+':
+                            tot=outer(tot, [w*self.effect_pdf(x)*(1.0-x)**outcome[node] for x, w in zip(int_points, weights)])
+
+                            #Integral using gaussian quadrature
                         elif self.node[i]['causes'][node] =='-':
-                            tot=outer(tot, [self.effect_pdf(w)*(1.0-w)**(1-outcome[node]) for w in linspace(0, 1, 100)])
+                            tot=outer(tot, [w*self.effect_pdf(x)*(1.0-x)**(1-outcome[node]) for x, w in zip(int_points, weights)])
                         elif type(self.node[i]['causes'][node])==float and self.node[i]['causes'][node]<=0:
                             tot *=((1.0-abs(self.node[i]['causes'][node]))**(1-outcome[node]))
 
-                    pr[i]=1-mean(tot) if outcome[i]==1 else 1-(1-mean(tot))
+                    pr[i]=1-sum(tot) if outcome[i]==1 else 1-(1-sum(tot))
                     p_out *=pr[i]
 
             self.Set(outcome, p_out)
