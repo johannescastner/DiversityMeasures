@@ -18,6 +18,7 @@ import random
 from thinkbayes import * #must have thinkbayes.py in the current directory or in the system path.
 import scipy.stats
 from scipy.special import erf, erfinv
+from scipy.special import beta as B, digamma as psi
 from networkx import DiGraph
 from numpy import zeros, array, outer, linspace, mean, ones, copy, cos, tan, pi #note that I'm not replacing the built in "sum" function with the numpy version, because there is dependency on the usual sum function in the Entropy, Mixed, etc. methods, despite the fact that this would allow for summing over multi-dimensional arrays, which is needed for the multi-variate integrals. The fix is to call numpy.sum()
 from math import sqrt, log
@@ -394,3 +395,27 @@ def masters_paper():
     S_5=S_6[1:]
     t_5=marginal_diversity(S_5)
     min_6=min(t_5)
+
+
+def BetaEntropy(alpha, beta):
+    return log(B(alpha, beta))-(alpha-1)*psi(alpha)-(beta-1)*psi(beta)+ (alpha+beta-2)*psi(alpha+beta)
+
+ExpCausalEffect=lambda alpha, beta: float(alpha)/(alpha + beta)
+
+EffectUncertainty=lambda alpha, beta: (ExpCausalEffect(alpha, beta), BetaEntropy(alpha, beta))
+
+def make_entropy_axes(alphas=linspace(0, 100, 1000)[1:]):
+    """
+    This function first calculates Entropy values of the beta distribution,
+    where alpha=beta, so that the expected value is alpha/(alpha +beta)=1.0/2.
+    next, the function reorders the values for alpha such that the entropy increases.
+    These alphas are later to be used as inputs in the graphs, so as to calculate
+    diversity as a function of entropy, holding constant the expected value of the
+    beta distribution. The entropy values are themselves exported as axis labels.
+    """
+    y_x=sorted((EffectUncertainty(x, x)[1], x) for x in alphas)
+    alphas, entrop=[x for y, x in y_x], [y for y, x in y_x]
+    return alphas, entrop
+
+
+#The plot must be something of the sort: plot(entrop, Diversity(alphas))

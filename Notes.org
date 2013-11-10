@@ -19,13 +19,17 @@
 
 #+LATEX: \newpage
 
-* TODO change my integration algorithms in my MA paper to be Gausian Quadratures :noexport:
+* DONE change my integration algorithms in my MA paper to be Gausian Quadratures :noexport:
 
-* TODO ask Johnathan Gross or someone else who knows, how to rebalance Bayesian Nets :noexport:
+
+* TODO ask Johnathan Gross or someone else who knows, how to rebalance Bayesian Nets			   :noexport:
 ...by adjusting alpha/beta so that the Nets only differ in structural terms, so that differences are not determined, merely by differences in marginal probabilities of variables. This might require coming up with an optimal re-weighting algorithm, or something along those lines.
+* TODO build a type that inherits from BayesNet and change the SetProbs method    :noexport:
+For the work with Tao, I must have joint distributions over variables such as prices which have many more possible values than the binary 1, or 0. Maybe there is much more precise information that can be gathered about forecasting beliefs. It should be possible to use the resulting BayesNet to make the same quantitative prediction that was made by the forecaster (this is where parameter fitting comes in).
 
+* Different Bayes Nets for different purposes
 * Some calculations
-Here are some calculations that might help with fixing the integration in my MA paper, which are currently not done as well as they could be. Calculating the interpolating polynomial for any given set of points $x_1, \lodts, x_k$:
+Here are some calculations that might help with fixing the integration in my MA paper, which are currently not done as well as they could be (has been fixed since, using Mark Newman's algorithm to get the weights and sample points for a Gaussian Quadrature, but the code here is still interesting). Calculating the interpolating polynomial for any given set of points $x_1, \lodts, x_k$:
 
 $$\phi_k(x)=\prod_{m=1\ldotsN, m\not=k}\frac{x-x_m}{x_k-x_m}$$
 
@@ -45,3 +49,35 @@ $$\phi_k(x)=\prod_{m=1\ldotsN, m\not=k}\frac{x-x_m}{x_k-x_m}$$
 
 
 * Function determines the comunication rituals.
+
+* Diversity as a function of conviction and causal strength
+I must write Diversity as a function of $\alpha$ and $\beta$, the causal effect shape parameters. The more certain one is in ones' propositions, or the stronger these propositions are (causal effect) the less able one is to learn anothers' propositions, if one were to be removed suddenly from one's own learning environment and thrown into the learning environment of the other. Thus, the more certain each individual is in her own convictions, the greater should be the Diversity. This is a question, whether this measure satisfies this.
+
+The expected causal effect (strength of proposition) exerted by one cause, $A$, on its effect, $B$, is:
+
+$$E(\text{Causal-Effect}_{i, (A, B)}) = E(\pi_{i, (A, B)})=\frac{\alpha}{\alpha + \beta}$$
+
+and the associated uncertainty that one has in one's mind about this causal effect can be expressed in terms of the Entropy of the Beta distribution, as:
+
+\begin{equation} \label{eq: entropy}
+H(\alpha, \beta)=\int_0^1 -f(\pi_{i, (A, B)}, \alpha, \beta)\log(f(\pi_{i, (A, B)}, \alpha, \beta))d\pi_{i, (A, B)}=\\
+
+\ln(\textbf{B}(\alpha, \beta))-(\alpha-1)\psi(\alpha)-(\beta-1)\psi(\beta)+(\alpha+\beta-2)\psi(\alpha+\beta),
+\end{equation}\\
+
+
+where $\psi(\cdot)$ is the digamma function, defined as the logarithmic derivative of the gamma function, $\Gamma(\cdot)$:
+
+\begin{equation}
+\psi(x)=\frac{d}{dx}\ln(\Gamma(x))=\frac{\Gamma^{'}(x)}{\Gamma(x)}.
+\end{equation}
+
+The Entropy, $H(\cdot)$, of the beta distribution, in this case representing the uncertainty of the value of a causal effect, is maximized in both of its arguments, $\alpha$ and $\beta$ when each takes on the value $1$, or when the beta distribution coincides with the uniform distribution. Of course, this should not come as a surpise, as this particular distribution has often been used as an uninformative prior for some parameter, despite of some serious flaws in this approach that have been pointed out in the literature (see, for example, King 1989).
+
+The Diversity should increase for decreased Entropy, holding constant $\alpha/(\alpha + \beta)$, for example at $\frac{1}{2}$ (when $\alpha =\beta$) and it should increase in $\alpha-\beta$, holding constant the Entropy (as happens whenever the values of $\alpha$ and $\beta$ are reversed).
+
+
+** some python calculations :noexport:
+#+begin_src python
+
+#+end_src
