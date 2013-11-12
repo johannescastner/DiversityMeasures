@@ -417,5 +417,51 @@ def make_entropy_axes(alphas=linspace(0, 100, 1000)[1:]):
     alphas, entrop=[x for y, x in y_x], [y for y, x in y_x]
     return alphas, entrop
 
-
 #The plot must be something of the sort: plot(entrop, Diversity(alphas))
+
+def expected_vals_diff(alphas=linspace(0.0001, 2, 20), beta=1):
+    return [float(alpha)/(alpha+beta)-float(beta)/(alpha+beta) for alpha in alphas]
+
+#The plot must be something of the sort: plot(expected_vals_diff(), [Diversity(a, b)-Diversity(b, a) for a in linspace(0, 2)])
+
+def Diversity(ls):
+    jsd=N_point_JSD(ls)
+    return sqrt(float(jsd)/log(len(ls), 2))
+
+def diversity_diff(alphas=linspace(0.0001, 2, 20), beta=1):
+    div_diff=[]
+    for alpha in alphas:
+        committee1=make_committee(alpha, beta)
+        committee2=make_committee(beta, alpha)
+        div1=Diversity(committee1)
+        div2=Diversity(committee2)
+        div_diff.append(div1-div2)
+    return div_diff
+
+#some stored results, the calculation of which takes rather long:
+#diversity_diffs=diversity_diff()
+
+#Diversity(alpha, beta)-Diversity(beta, alpha)
+div_diff= [-0.15226733260185138, -0.1937414829631236, -0.16722646433556618, -0.13272222878491455, -0.10115433001090396, -0.0735703750643158, -0.04937081620511091, -0.027936233971641355, -0.008805360909485804, 0.008370526684388091, 0.02386825193723696, 0.03791314431690529, 0.050694291698181904, 0.062370156195378945, 0.07307411579663792, 0.08291915717118259, 0.0920016062136223, 0.10040407440799981, 0.10819780202337359]
+
+#alpha/(alpha+beta)-beta/(alpha+beta), when beta=1 and alpha goes from 0-2:
+
+vals_diff=[-0.8093687207763145, -0.65205180486659686, -0.51990272622552158, -0.40732922245060466, -0.31028157261373585, -0.22575504898181692, -0.1514732797595239, -0.085680164337692266, -0.026999270289992161, 0.025663510329248795, 0.073188815827983866, 0.11629345568793065, 0.15556681466469335, 0.19149796278762993, 0.22449612656223211, 0.25490634368817439, 0.28302157350349622, 0.30909216528697214, 0.33333333333333331]
+
+def make_div_plot():
+    plot(vals_diff, div_diff, 'ro')
+
+    plt.axis([min(vals_diff)-0.05, max(vals_diff)+0.05, min(div_diff)-0.0125, max(div_diff)+0.0125])
+
+    font = {'family' : 'serif',
+        'color'  : 'darkred',
+        'weight' : 'normal',
+        'size'   : 18,
+        }
+    plt.title('Diversity as a Function of Expected Causal Strength', fontdict=font)
+    plt.text(0.2, 1.5, r'$\alpha=\beta=2$', fontdict=font)
+    plt.text(0.45, 2, r'$\alpha=4$,$\beta=2$', fontdict=font)
+    plt.xlabel(r'$(\alpha-\beta)/(\alpha+\beta)$', fontdict=font)
+    plt.ylabel(r'Diversity($\alpha$, $\beta$)-Diversity($\beta$, $\alpha$)', fontdict=font)
+
+    plt.show()
