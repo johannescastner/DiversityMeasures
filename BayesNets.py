@@ -96,6 +96,7 @@ allows for binary variables. All methods that start with capital letters
 relate more to joint distributions and those that are more graph-related start
 with lower case letters.
 The joint probability is encoded, using the Noisy-OR encoding (Pearl 1988).
+Plans for development: 1) it should be possible to add any kind of categorical variables and discrete numerical variables, which should not be related using the noisy-OR gate, but in other ways that are made to fit the type of variable. The node, or variable, must have itself a method, called Values(), which is a set of all possible values which the variable can take on.
 """
 
     def __init__(self, data=None, name='', p=0.5, effect_pdf=lambda x, a, b : beta(a, b).pdf(x), a=2, b=2):
@@ -428,11 +429,11 @@ def Diversity(ls):
     jsd=N_point_JSD(ls)
     return sqrt(float(jsd)/log(len(ls), 2))
 
-def diversity_diff(alphas=linspace(0.0001, 2, 20), beta=1):
+def diversity_diff(alphas=linspace(0.0001, 2, 20), b=1):
     div_diff=[]
     for alpha in alphas:
-        committee1=make_committee(alpha, beta)
-        committee2=make_committee(beta, alpha)
+        committee1=make_committee(alpha, b)
+        committee2=make_committee(b, alpha)
         div1=Diversity(committee1)
         div2=Diversity(committee2)
         div_diff.append(div1-div2)
